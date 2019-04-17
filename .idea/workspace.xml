@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/css/cc menu.css" line="38" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b4fa8be4-46e3-4245-aee4-3570783a476b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Click2Call" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.7204503">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/content.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="334">
+                  <caret line="765" column="63" lean-forward="true" selection-start-line="765" selection-start-column="63" selection-end-line="765" selection-end-column="63" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/call.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/menu.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/manifest.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="323">
+                  <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/menu.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-391">
+                  <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+                  <folding>
+                    <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#5;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#5;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/css/cc menu.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="383">
+                  <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/cc content.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="400">
+                  <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>use_list</find>
+      <find>content_fixed</find>
+      <find>table</find>
+      <find>typeof</find>
+      <find>useList</find>
+      <find>blacklist</find>
+      <find>getDomains</find>
+      <find>filter</find>
+      <find>==</find>
+      <find>cc_call_btn</find>
+      <find>interval</find>
+      <find>var</find>
+      <find>log()</find>
+      <find>header</find>
+      <find>refreshToken</find>
+      <find>refresh</find>
+      <find>get</find>
+      <find>logout</find>
+      <find>get\</find>
+      <find>getAccessToken</find>
+      <find>about_logo</find>
+      <find>about_info_table</find>
+      <find>ugli</find>
+      <find>create</find>
+      <find>domain_list</find>
+      <find>selectNoFilters</find>
+      <find>setFilter</find>
+      <find>cc_edit_num</find>
+      <find>main_menu</find>
+      <find>nolist</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>options_text_box</replace>
+      <replace>save</replace>
+      <replace>whitelist</replace>
+      <replace>-</replace>
+      <replace>blaclist</replace>
+      <replace>blacklist</replace>
+      <replace>class=&quot;logo&quot;</replace>
+      <replace>company_modal</replace>
+      <replace>modal_info_table</replace>
+      <replace>company_website_display_name</replace>
+      <replace>#login</replace>
+      <replace>#login_name</replace>
+      <replace>url</replace>
+      <replace>tip</replace>
+      <replace>cc</replace>
+      <replace>cc_tip</replace>
+      <replace>node</replace>
+      <replace>header</replace>
+      <replace>logout_tab</replace>
+      <replace>about_info_table</replace>
+      <replace>populate</replace>
+      <replace>createDomainTable</replace>
+      <replace>add_domain</replace>
+      <replace>.login_name</replace>
+      <replace>dialpad_body_content</replace>
+      <replace>tooltipInterval</replace>
+      <replace>===</replace>
+      <replace>setFilter</replace>
+      <replace>filter</replace>
+      <replace>let</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/content.new.js" />
+        <option value="$PROJECT_DIR$/uglipop.min.js" />
+        <option value="$PROJECT_DIR$/c2c.new.css" />
+        <option value="$PROJECT_DIR$/content.old.js" />
+        <option value="$PROJECT_DIR$/../SlackPay/app/Helpers/LogHelper.php" />
+        <option value="$PROJECT_DIR$/options.new.js" />
+        <option value="$PROJECT_DIR$/options.old.js" />
+        <option value="$PROJECT_DIR$/optionTable.js" />
+        <option value="$PROJECT_DIR$/ss.js" />
+        <option value="$PROJECT_DIR$/old/version 1/content.old.js" />
+        <option value="$PROJECT_DIR$/old/version 1/jquery.js" />
+        <option value="$PROJECT_DIR$/jquery.js" />
+        <option value="$PROJECT_DIR$/old/version 1/options.html" />
+        <option value="$PROJECT_DIR$/optionsTable.js" />
+        <option value="$PROJECT_DIR$/options.js" />
+        <option value="$PROJECT_DIR$/old/version 1/manifest.json" />
+        <option value="$PROJECT_DIR$/background.js" />
+        <option value="$PROJECT_DIR$/tooltipMockUp.html" />
+        <option value="$PROJECT_DIR$/old/version 1/content.js" />
+        <option value="$PROJECT_DIR$/c2c.css" />
+        <option value="$PROJECT_DIR$/content.js" />
+        <option value="$PROJECT_DIR$/old/version 2/c2c.css" />
+        <option value="$PROJECT_DIR$/old/version 2/options.html" />
+        <option value="$PROJECT_DIR$/old/version 1/options.js" />
+        <option value="$PROJECT_DIR$/css/c2c content.css" />
+        <option value="$PROJECT_DIR$/about.html" />
+        <option value="$PROJECT_DIR$/background.html" />
+        <option value="$PROJECT_DIR$/loader.js" />
+        <option value="$PROJECT_DIR$/css/c2c.old.css" />
+        <option value="$PROJECT_DIR$/css/c2c.css" />
+        <option value="$PROJECT_DIR$/tutorial.js" />
+        <option value="$PROJECT_DIR$/Tutorial.html" />
+        <option value="$PROJECT_DIR$/js/tutorial.js" />
+        <option value="$PROJECT_DIR$/about.js" />
+        <option value="$PROJECT_DIR$/js/textNumbers.js" />
+        <option value="$PROJECT_DIR$/TestNumber.html" />
+        <option value="$PROJECT_DIR$/js/options.js" />
+        <option value="$PROJECT_DIR$/options.html" />
+        <option value="$PROJECT_DIR$/css/cc.css" />
+        <option value="$PROJECT_DIR$/js/ss.js" />
+        <option value="$PROJECT_DIR$/js/optionsTable.js" />
+        <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/manifest.json" />
+        <option value="$PROJECT_DIR$/js/call.js" />
+        <option value="$PROJECT_DIR$/js/content.js" />
+        <option value="$PROJECT_DIR$/css/cc content.css" />
+        <option value="$PROJECT_DIR$/menu.html" />
+        <option value="$PROJECT_DIR$/css/cc menu.css" />
+        <option value="$PROJECT_DIR$/js/menu.js" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ChromeCall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChromeCall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChromeCall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChromeCall" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChromeCall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChromeCall" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChromeCall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChromeCall" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OIT-Admin" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\davit\PhpstormProjects\Click2Call\js" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call\img" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call\old\V1 Backup" />
+      <recent name="C:\Users\davit\PhpstormProjects\Chrome Click 2 Call\old" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\davit\PhpstormProjects\Click2Call\js" />
+      <recent name="C:\Users\davit\PhpstormProjects\Click2Call\css" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call\css" />
+      <recent name="C:\Users\davit\PhpstormProjects\OIT Click 2 Call\old\version 1" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4fa8be4-46e3-4245-aee4-3570783a476b" name="Default Changelist" comment="" />
+      <created>1553092853946</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553092853946</updated>
+      <workItem from="1553092855412" duration="45397000" />
+      <workItem from="1553258239945" duration="33639000" />
+      <workItem from="1553534323418" duration="11226000" />
+      <workItem from="1553603725706" duration="128065000" />
+      <workItem from="1554160923340" duration="10682000" />
+      <workItem from="1554209003877" duration="23920000" />
+      <workItem from="1554468476529" duration="24980000" />
+      <workItem from="1554726801548" duration="24419000" />
+      <workItem from="1554812993644" duration="23420000" />
+      <workItem from="1554899758385" duration="28658000" />
+      <workItem from="1554986371807" duration="28025000" />
+      <workItem from="1555417958682" duration="9430000" />
+      <workItem from="1555429824703" duration="13006000" />
+      <workItem from="1555504437980" duration="21679000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="526122000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49837488" visible="true" weight="0.14765458" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.5016251" side_tool="true" weight="0.13539445" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4989339" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49837488" visible="true" weight="0.1444563" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.5016251" side_tool="true" weight="0.13539445" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4989339" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>402</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>413</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>120</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>94</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>7</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>130</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>417</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>355</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>342</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>465</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>442</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>439</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/content.old.js</url>
+          <line>425</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/old/version 1/content.js</url>
+          <line>258</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/menu.js</url>
+          <line>231</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/old/options.old.js" />
+    <entry file="file://$PROJECT_DIR$/ss.js" />
+    <entry file="file://$PROJECT_DIR$/old/V1 Backup/content.old.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/manifest.json" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/jquery.js" />
+    <entry file="file://$PROJECT_DIR$/2jquery.js" />
+    <entry file="file://$PROJECT_DIR$/optionsTable.js" />
+    <entry file="file://$PROJECT_DIR$/options.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/c2c.css" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/background.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/background.html" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/manifest.json" />
+    <entry file="file://$PROJECT_DIR$/uglipop.min.js" />
+    <entry file="file://$PROJECT_DIR$/tooltipMockUp.html" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/content.js" />
+    <entry file="file://$PROJECT_DIR$/c2c.css" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/options.js" />
+    <entry file="file://$PROJECT_DIR$/content.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/options.html" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/jquery.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 2/c2c.css" />
+    <entry file="file://$PROJECT_DIR$/background.js" />
+    <entry file="file://$PROJECT_DIR$/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="10537" selection-start-line="2" selection-start-column="10537" selection-end-line="2" selection-end-column="10537" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old/version 1/content.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/options.js" />
+    <entry file="file://$PROJECT_DIR$/old/version 1/options.html" />
+    <entry file="file://$PROJECT_DIR$/js/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options.old.html" />
+    <entry file="file://$PROJECT_DIR$/manifest.dynamic.json" />
+    <entry file="file://$PROJECT_DIR$/loader.js" />
+    <entry file="file://$PROJECT_DIR$/about.html" />
+    <entry file="file://$PROJECT_DIR$/js/jquery.fittext.js" />
+    <entry file="file://$PROJECT_DIR$/css/c2c.old.css" />
+    <entry file="file://$PROJECT_DIR$/background.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tutorial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestNumber.html" />
+    <entry file="file://$PROJECT_DIR$/js/options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="396" column="13" selection-start-line="396" selection-start-column="13" selection-end-line="396" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1975#1981#0" expanded="true" />
+            <element signature="e#2096#2102#0" expanded="true" />
+            <element signature="e#2225#2231#0" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3858#3865#1" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/cc.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ss.js" />
+    <entry file="file://$PROJECT_DIR$/js/textNumbers.js" />
+    <entry file="file://$PROJECT_DIR$/js/optionsTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/call.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="765" column="63" lean-forward="true" selection-start-line="765" selection-start-column="63" selection-end-line="765" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/cc content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/cc menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#5;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

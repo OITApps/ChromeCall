@@ -1,0 +1,34 @@
+{
+  "name": "ChromeCall",
+  "icons": {
+    "16": "img/icon.png"
+  },
+  "description": "ChromeCall extension to dial numbers directly from web pages",
+  "version": "2",
+  "browser_action": {
+    "default_popup": "menu.html"
+  },
+  "content_scripts": [{
+    "matches": [ "http://*/*", "https://*/*" ],
+    "css": [ "css/cc content.css"],
+    "js": [
+      "js/jquery-3.3.1.min.js",
+      "js/bootstrap.min.js",
+      "js/uglipop.min.js",
+      "config.js",
+      "js/call.js",
+      "js/content.js"
+    ],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "background": {
+    "page": "background.html"
+  },
+  "options_page": "options.html",
+  "permissions": [ 	"http://*/*", "https://*/*", "activeTab","tabs","storage","notifications"],
+  "manifest_version": 3,
+  "web_accessible_resources": [ "img/", "img/pencil-15.png" ]
+}
+
+

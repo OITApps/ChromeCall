@@ -1,0 +1,592 @@
+html {
+    font-family: "Roboto","LocalRoboto","Helvetica Neue","Helvetica","sans-serif";
+    font-size: 14px;
+    height: 348px;
+    width: 350px;
+}
+
+hr {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.red {
+    background-color: red;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.white {
+    background-color: white;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.gray {
+    background-color: gray;
+}
+
+/* Header */
+#header {
+    position: relative;
+    height: 24px;
+    padding: 2px;
+    background-color: white;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.header hr {
+    width: 321px;
+    margin-left: 10px;
+}
+
+#header #icon {
+    position: absolute;
+    top: 5px;
+    float: left;
+    height: 16px;
+    width: 16px;
+}
+
+#titlebar_title {
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+}
+
+/* Menu */
+#menu_backdrop{
+    position: absolute;
+    height:20px;
+    width:20px;
+    right:2px;
+    top:2px;
+}
+
+#menu_backdrop:hover {
+    border-radius: 50%;
+    background-color: #e3e5e8;
+}
+
+#menu_backdrop #menu_icon {
+    position: relative;
+    bottom: 3px;
+    left: 2px;
+    height: 16px;
+    width: 16px;
+}
+
+#main_menu {
+    display: none;
+    position: absolute;
+    right: 1px;
+    top: 28px;
+    width: 102px;
+    height: 153px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: white;
+    z-index: 9999;
+}
+
+/* tabs */
+.tab {
+    width: 100px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0px;
+    margin:0px;
+    box-shadow:inset 0px 0px 0px 0px #ffffff;
+    cursor:pointer;
+    background-color: white;
+}
+
+.tab:hover {
+    background-color:#e9e9e9;
+}
+
+.active_tab {
+    background-color:#e9e9e9;
+}
+
+
+.login_name_left, .domain_left{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.login_name, #domain_name {
+    margin-left: 5px;
+}
+
+#content {
+    height: 335px;
+}
+
+.tab_content{
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+
+.tab_content span{
+    line-height: 24px;
+}
+
+#tab1_content {
+    display: none;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px 10px 20px;
+}
+
+#dialpad_header {
+    height: 60px;
+    width: 310px;
+    background-color: #eeeeed;
+    padding: 6px 6px 0 6px;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+#dialpad_header input {
+    height:100%;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 4px 35px;
+    line-height: 32px;
+    font-size: 32px;
+    text-align: center;
+    direction: rtl;
+}
+
+#dialpad_header input:focus,
+#dialpad_header input:active{
+    direction: ltr;
+
+}
+
+#dialpad_body {
+    height: 270px;
+    width: 100%;
+    background-color: #eeeeed;
+    padding: 5px;
+}
+
+#dialpad_body_left, #dialpad_body_right {
+    float: left;
+    height: 100%;
+    width: 23px;
+}
+
+#dialpad_body_content {
+    float:left;
+    height: 100%;
+    width: 100%;
+}
+
+.dialpad_row {
+    height: 62px;
+    width: 100%;
+}
+
+.dialpad_row div {
+    display: inline-block;
+    float: left;
+    height: 62px;
+    width: 98px;
+    margin: 1px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: white;
+}
+
+.dialpad_row div:hover {
+    background-color: #e3e5e8;
+}
+
+.dialpad_number {
+    position: relative;
+    top: 10px;
+    font-size: 32px;
+    display: inline-block;
+    width: 30px;
+}
+
+.dialpad_subscript {
+    position: relative;
+    top: 5px;
+    right: 2px;
+    font-size: 10px;
+    color: darkgray;
+}
+
+.dialpad_subscript img {
+    height: 8px;
+    width: 16px;
+}
+
+#dialpad_asterisk {
+    font-size: 58px;
+    font-weight: 200;
+    top: 19px;
+}
+
+#zero_subscript {
+    position: relative;
+    font-size: 14px;
+    right: 2px;
+}
+
+#dialpad_footer {
+    width: 100%;
+    height: 20px;
+}
+
+
+#tab2_content, #tab5_content {
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#tab2_content_main{
+    height: 100%;
+    width: 100%;
+}
+
+#tab2_content_main div{
+    display: inline-block;
+    padding:0px;
+}
+
+#tab2_content_main .page1 {
+    height: 275px;
+    padding-left: 8px;
+    padding-top: 30px;
+    padding-bot: 10px;
+}
+
+#tab2_content_header, #tab5_content_header {
+    width: 100%;
+    height: 60px;
+}
+
+#tab2_content_header hr {
+    position: relative;
+    right: 20px;
+    margin-top: 15px;
+    margin-left:0px;
+    margin-bottom:35px;
+    width: 350px;
+}
+
+.page_row {
+    margin-bottom: 16px;
+}
+
+#tab3_content {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+#tab3_content .page_row{
+    margin-bottom: 0px;
+    margin-top: 0px !important;
+}
+
+
+.left_column_tab2{
+    display: inline-block;
+    text-align: left;
+    width: 245px;
+    line-height: 24px;
+}
+
+.left_column_radio_tab2{
+    display: inline-block;
+    text-align: left;
+    width: 188px;
+    line-height: 24px;
+}
+
+.right_column_tab2{
+    display: inline-block;
+    margin-right: 5px;
+    width: 40px;
+}
+
+.right_column_tab2_page2 {
+    height: 22px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+#tab2_content_pager{
+    width: 100%;
+    text-align: center;
+    height: 25px;
+}
+
+
+#tab2_content_pager .previous,
+#tab2_content_pager .next{
+    background-color: #f1f1f1;
+    color: black;
+    height: 22px;
+    line-height: 20px;
+}
+
+#tab2_content_pager a{
+    text-decoration: none;
+    display: inline-block;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    padding-top: 0px;
+}
+
+#tab2_content_pager a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+#tab4_content {
+    overflow: auto;
+}
+
+#tab4_content div{
+    margin-top: 10px;
+}
+
+#tab5_content_body {
+    height: 260px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+}
+.options_text_box{
+    height: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+#country_code{
+    height: 22px;
+    width: 270px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.qtip{
+    position: relative;
+    bottom: 2px;
+}
+
+.use_list, .short_number_radio{
+    position: relative;
+    top:2px;
+    margin-left: 10px;
+}
+
+.options_bottom_text_box{
+    position: relative;
+    bot:1px;
+    line-height: initial;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.list_container {
+    height: 249px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#add_domain_list, #add_number_blacklist{
+    line-height: 19px;
+    overflow: auto;
+}
+
+#domain_list, #numberblacklist {
+    padding: 3px;
+    line-height: 20px;
+    margin: 5px 5px 5px 13px;
+    overflow: auto;
+    height: 205px;
+}
+
+row {
+    max-width: 300px;
+    overflow: hidden;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 255px;
+    display: inline-block;
+    margin-bottom: -10px;
+}
+
+.list_td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 225px;
+    display: inline-block;
+    line-height: 1em;
+    float: left;
+}
+
+.del_td{
+    display:inline-block;
+    position: relative;
+    bottom: 5px;
+    float:right;
+}
+
+#login_container {
+    display: inline-block;
+    margin: auto;
+    padding: 20px;
+}
+
+
+#login_container input, select {
+    width: 100%;
+}
+
+
+.center_parent {
+    position: relative;
+    text-align: center;
+}
+
+.center_child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto !important;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.about_logo {
+    margin: 45px 0px;
+}
+.about_logo img{
+    flex: 1 0 auto;
+}
+
+
+#about_info_table{
+}
+
+
+#about_info_table_container{
+    flex: 0 1 auto;
+}
+
+#banner_container{
+    margin-bottom: 15px;
+    text-align: center;
+}
+.banner {
+    height:64px;
+    width:256px;
+}
+
+
+.help_category {
+    margin-left:20px;
+    width: 280px;
+}
+
+#help_gif_frame {
+    position: relative;
+    left: 20px;
+    padding: 5px;
+    background-color: #eeeeed;
+    z-index: 100;
+    width: 160px;
+    margin-left: 30px;
+}
+
+#help_img_frame1{
+    position: relative;
+    left: 20px;
+    margin: 15px;
+    padding: 20px;
+    background-color: #eeeeed;
+    z-index: 100;
+    width: 150px;
+}
+
+#help_custom_dial2_img{
+    width: 200px;
+    display: block;
+    margin: 30px;
+}
+
+.toggle {
+    display: inline-block;
+}
+
+.toggle_plus_img {
+    height: 12px;
+    margin-right: 5px;
+    position: relative;
+    bottom: 2px;
+}
+
+.rotated {
+    transform: rotate(45deg);
+    height: 12px;
+}
+
+#options_tool_tip{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    margin-left:-4px;
+    padding: 10px 15px;
+    pointer-events: none;
+}
+
+#options_tool_tip_card {
+    background-color: #afd9ee;
+    padding: 10px 10px 5px 20px;
+    text-indent: -10px;
+}
+
+
+#options_tool_tip_card h3 {
+    font-size: 12px;
+    font-weight: normal;
+}
+
