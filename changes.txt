@@ -1,0 +1,48 @@
+menu.html
+- Line 11 changed reference from "/img/icon.png" to "/img/16.png"
+- 
+
+options.html
+- Line 48 added a space after Domain: to fix spacing issue.
+
+menu.js
+- Line 56 changed Email to be a hyperlink which will open in email client with the extension name in the subject
+- Lines 59-66 replaced company_website with company_website_link to match config.js
+- Lines 72-79 replaced company_support_website with company_additional_website_link to match config.js
+- Lines 72-79 replaced company_support_website_display_name with company_additional_website_website_display_name to match config.js
+- Lines 68-70 added check and links for Manager Portal
+- Line 6 added if(apiUrl !=){
+    url = managerPortal + '/ns-api/';
+} else {
+    url = apiUrl + '/ns-api/';
+}
+
+options.js
+- Replaced company_website with company_additional_website_link to match config.js
+
+manifest.json
+- Removed icon.png and added references to the new image files per Google guidelines
+  "icons": {
+    "16": "img/16.png",
+    "48": "img/48.png",
+    "128": "img/128.png"
+	},
+
+/img folder
+- Added the following files: 16.png, 48.png and 128.png as per Google Manifest instructions
+
+config.js
+- Reworked the instructions to break them into the following parts: 
+-- Copyright and ownership information
+-- Rebranding instructions
+    -- Icons
+    -- Banner
+    -- Text
+-- Installation instructions
+-- Log in and test
+- Added licenseKey variable for future use. 
+- Changed variable company_website to company_website_link to make it more descriptive
+- Changed variable company_support_website_display_name to company_additional_website_website_display_name to add flexibility
+- Changed variable company_support_website to company_additional_website_link to add flexibility
+- Added in line comments for each of the variables along with examples
+- Added variable managerPortal for link from about page
