@@ -4,6 +4,13 @@
 const options_pages = 2;
 let autoSave = true;
 
+if(apiUrl == '' || typeof apiUrl !== 'undefined'){
+    url = managerPortal + '/ns-api/';
+} else {
+    url = apiUrl + '/ns-api/';
+}
+
+
 /**
  * Enables Console logging.
  * For ease of access, please keep this as the first function in this class.
@@ -40,10 +47,10 @@ function populate(){
 
         $('.extension_title').html(extension_name);
         $('#titlebar_title').html(extension_name);
-        $('#_how_to_use_text').html('How to user ' + extension_name);
+        $('#_how_to_use_text').html('How to use ' + extension_name);
     }else {
 
-        $('#_how_to_use_text').html('How to user ');
+        $('#_how_to_use_text').html('How to use ');
     }
 
     if(company_phonenumber != ""){
@@ -53,25 +60,29 @@ function populate(){
 
     if(company_email != ""){
 
-        $('#about_info_table').append('<div>Email: ' + company_email + '</div>');
+        $('#about_info_table').append('<div>Email: <a href="mailto:' + company_email + '?subject=' + extension_name + '" target="blank">' + company_email + '</a></div>');
     }
 
-    if(company_website != ""){
+    if(company_website_link != ""){
         if(company_website_display_name === "") {
 
-            company_website_display_name = company_website;
+            company_website_display_name = company_website_link;
         }
-        $('#about_info_table').append('<div><a href="' + company_website + '" target="blank">'
+        $('#about_info_table').append('<div>Web: <a href="' + company_website_link + '" target="blank">'
             + company_website_display_name + '</a></div>');
     }
 
-    if(company_support_website != ""){
-        if(company_support_website_display_name === "") {
+    if(managerPortal != ""){
+        $('#about_info_table').append('<div>Portal: <a href="' + managerPortal + '" target="blank">' + managerPortal + '</a></div>');
+    }
 
-            company_support_website_display_name = company_support_website;
+    if(company_additional_website_link != ""){
+        if(company_additional_website_display_name === "") {
+
+            company_additional_website_display_name = company_additional_website_link;
         }
-        $('#about_info_table').append('<div><a href="' + company_support_website + '" target="blank">'
-            + company_support_website_display_name + '</a></div>');
+        $('#about_info_table').append('<div><a href="' + company_additional_website_link + '" target="blank">'
+            + company_additional_website_display_name + '</a></div>');
     }
 
 
