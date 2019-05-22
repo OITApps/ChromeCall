@@ -1,34 +1,48 @@
 {
   "name": "ChromeCall",
   "icons": {
-    "16": "img/icon.png"
-  },
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+	},
   "description": "ChromeCall extension to dial numbers directly from web pages",
-  "version": "2",
+  "version": "0.7",
   "browser_action": {
-    "default_popup": "menu.html"
+    "default_popup": "html/menu.html"
   },
   "content_scripts": [{
     "matches": [ "http://*/*", "https://*/*" ],
-    "css": [ "css/cc content.css"],
+    "css": ["css/cc content.css"],
     "js": [
       "js/jquery-3.3.1.min.js",
       "js/bootstrap.min.js",
-      "js/uglipop.min.js",
+      "js/axios.min.js",
       "config.js",
-      "js/call.js",
+      "js/stub.js",
+      "js/search.js",
+      "js/api.js",
+      "js/modal.js",
+      "js/keybind.js",
       "js/content.js"
     ],
     "run_at": "document_end",
     "all_frames": true
   }],
   "background": {
-    "page": "background.html"
+    "scripts": ["js/jquery-3.3.1.min.js", "js/background.js"],
+    "persistent": false
   },
-  "options_page": "options.html",
-  "permissions": [ 	"http://*/*", "https://*/*", "activeTab","tabs","storage","notifications"],
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "activeTab",
+    "tabs",
+    "storage",
+    "notifications",
+    "contextMenus"
+  ],
   "manifest_version": 2,
-  "web_accessible_resources": [ "img/", "img/pencil-15.png" ]
+  "web_accessible_resources": [ "img/*"]
 }
 
 

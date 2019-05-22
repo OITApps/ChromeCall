@@ -1,0 +1,26 @@
+Version 0.6:
+Extension functionality will not longer continue after the user has logged out. 
+Dialpad Tab has been added to menu.
+    Dialpad allows users to manually type in numbers to dial as well as call their voice mail.
+    Dialpad allows calls using both letters and number ie: 1800CALLMOM
+Settings are now linked to individual logins instead of being extension wide.
+The Call Tooltip now displays if the call was successful.
+
+
+Version 0.7
+Memory leaks have been corrected.
+Number search is now more selective about what is acceptable as a number. 
+The extension now accept 7 digit numbers dialed to your local area code.
+Extension Performance increases on page load.
+There is now an option to search for short numbers with dial lengths of 3,4 & 5.
+The Tooltip is now no longer visible when the page loads.
+The tooltip now also mirrors vertically in it's position when a number is too close to the top of the page.
+A key bind can now be set in the options to raise the dialing modal.
+Tooltips can now be dismissed by clicking the X on the top right of the tooltip. It will not reappear over that number until the page is reloaded. 
+Fixed a bug where the tooltip would never show again after a call was made and the page was not reloaded. 
+
+Version 0.71
+Fixed bug which produces an error prompt before trying to log in after logging out. 
+Fixed a bug which would disable the dialpad in the menu (raising an error prompt instead)
+Highlight Calling: When text on the screen is highlighted the right click menu (context menu,) will not how an option to call the first number found within
+the highlighted text. Users do not need to highlight exclusively the number they wish to dial. The extension will search their highlighted text for a phone number.

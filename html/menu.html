@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChromeCall Options</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="../css/cc%20menu.css"/>
+</head>
+<body>
+<div id="main_container">
+    <div id="header" >
+        <img id="icon" src="../icons/16.png" style="height:16px; width:16px;"/>
+        <span id="titlebar_title"></span>
+        <div id="menu_backdrop">
+            <img id='menu_icon' src="../img/hamburger%20menu.png" />
+        </div>
+    </div>
+    <hr>
+    <div id="login_container">
+        <div id="banner_container">
+            <img class="banner" src="../icons/banner.png"><img/>
+        </div>
+        <h3>
+            Login Name
+        </h3>
+        <input type=text placeholder="1001@domain" id="login" style="width: 100%;">
+
+        <br>
+
+        <br>
+
+        <h3>
+            Password
+        </h3>
+        <input type="password" id="pass">
+
+        <br>
+        <br>
+        <button  type="button" id="login_button">
+            login
+        </button>
+    </div>
+    <div id="content">
+        <div id="main_menu">
+            <div id="tab1" class="tab">
+                Dialpad
+            </div>
+            <div id="tab2" class="tab">
+                Options
+            </div>
+            <div id="tab3" class="tab">
+                Filters
+            </div>
+            <div id="tab4" class="tab">
+                Help
+            </div>
+            <div id="logout_tab" class="tab">
+                Logout
+            </div>
+        </div>
+        <div id="tab1_content">
+            <div id="dialpad_header">
+                <!--<span id="dial_pad_announce">Dialed</span>-->
+                <button id="dialpad_voicemail">
+                    <img src="../img/voicemail%20white.png">
+                </button>
+                <input type=text id="dialpad_input" spellcheck="false">
+                <button id="dialpad_backspace">
+                    <i class="fas fa-backspace" style="color: white;"></i>
+                </button>
+            </div>
+            <div class="tab5_info_row" style="margin-top: 5px;">
+                    <span class="dialpad_login_name">
+                        User:<span class="login_name"></span>
+                    </span>
+            </div>
+            <div class="tab5_info_row" style="margin-bottom: 5px;">
+                <span class="dialpad_domain">
+                    Domain:
+                    <span class="domain_name"></span>
+                </span>
+            </div>
+            <hr>
+            <div id="tab5_content_body" style="text-align: center;">
+                <div class="about_logo">
+                    <img class="banner" src="../icons/banner.png"><img/>
+                </div>
+
+                <div id="about_info_table_container">
+                    <table id="about_info_table" class="table table-hover"></table>
+                </div>
+            </div>
+        </div>
+        <div id="tab2_content">
+            <div id="tab2_content_main">
+                <div id="tab2_content_header">
+                    <span class="login_name_left">
+                        User:<span class="login_name"></span>
+                    </span>
+
+                    <br>
+                    <span class="domain_left">
+                        Domain:<span class="domain_name"></span>
+                    </span>
+
+                </div>
+                <hr>
+                <div class="page_row">
+                    <span class="left_column_tab2">
+                        Country Code:
+                        <img src="../img/q.png" class="qtip" id="country_code_tip"/>
+                    </span>
+                    <br>
+                    <select id="country_code" class="triggersSave"></select>
+
+                </div>
+                <!--<div class="page_row" style="margin: 0 0 10px 0;">
+                    <span class="left_column_tab2">
+                        Device:
+                        <img src="../img/q.png" class="qtip" id="device_tip"/>
+                    </span>
+                    <br>
+                    <select id="devices" class="triggersSave"></select>
+
+                </div>-->
+                <div class="page_row">
+                    <span class="left_column_tab2">
+                        International Prefix:
+                        <img src="../img/q.png" class="qtip" id="intl_prefix_tip">
+                    </span>
+                    <span class="right_column_tab2">
+                        <input type=text id="intl_prefix" class="options_text_box triggersSave">
+                    </span>
+
+                </div>
+                <div class="page_row">
+                    <span class="left_column_tab2">
+                        Area Code:
+                    </span>
+                    <span class="right_column_tab2">
+                        <input type=text id="area_code" class="options_text_box" disabled>
+                    </span>
+                </div>
+                <div class="page_row">
+                    <span class="left_column_radio_tab2">
+                        Display Number Before Calling:
+                        <img src="../img/q.png" class="qtip" id="display_number_before_call_tip">
+                    </span>
+                    <input type="checkbox" id="display_number_before_call_switch"
+                           class="option_switch triggersQuietSave"/>
+                    <label for="display_number_before_call_switch">ON</label>
+                </div>
+                 <div class="page_row">
+                    <span class="left_column_radio_tab2">
+                        Include Short Numbers:
+                        <img src="../img/q.png" class="qtip" id="short_number_tip">
+                    </span>
+                    <input type="checkbox" id="short_number_switch" class="option_switch triggersQuietSave"/>
+                     <label for="short_number_switch">ON</label>
+                </div>
+                <!--
+                <div class="page_row">
+                    <span class="left_column_radio_tab2">
+                        Force Answer:
+                        <img src="img/q.png" class="qtip" id="force_answer_tip">
+                    </span>
+                    <input type="checkbox" id="force_call_switch" class="option_switch triggersQuietSave"/><label for="force_call_switch">ON</label>
+                </div>-->
+                <div class="page_row" style="width: 290px;">
+                    <span class="left_column_tab2" style="width:205px; float:left;">
+                        Dial Number Hotkey:
+                        <img src="../img/q.png" class="qtip" id="dial_number_tip" style="margin-left:-1px;">
+                    </span>
+                    <span type=text id="dial_number_display" class="options_text_box"></span>
+                </div>
+            </div>
+        </div>
+        <div id="tab3_content" class="tab_content">
+            <!--<div class="page_row" style="margin-bottom: 10px;">
+
+                <span class="filter_select_label">
+                            Filter:
+                            <img src="../img/q.png" class="qtip" id="country_code_tip"/>
+                        </span>
+                <select class="filter_select triggersSave">
+                    <option filter="domain_filter">Domains</option>
+                    <option filter="number_filter">Phone Numbers</option>
+                </select>
+            </div>-->
+            <div class="page_row" style="margin-bottom: 10px;">
+                <span>
+                    Domain Filter:
+                    <img src="../img/q.png" class="qtip" id="domain_filter_tip">
+                </span>
+                <br>
+                <span>
+                    <input id="domain_whitelist_radio" type=radio class="domain_filter" name="domain_filter"
+                           value="domain_whitelist" style="margin-left: 10px;">
+                    White List
+                    <input id="domain_blacklisted_radio" type=radio class="domain_filter" name="domain_filter"
+                           value="domain_blacklist">
+                    Black List
+                    <input id="domain_nofilter_radio" type=radio class="domain_filter" name="domain_filter"
+                           value="domain_nofilter" checked="checked">
+                    None
+                </span>
+            </div>
+            <div id="domain_list_container">
+                <span class="left_column_tab2">
+                    Add Domain:
+                    <img src="../img/q.png" class="qtip" id="domain_list_tip">
+                </span>
+                <div class="right_column_tab2_page2">
+                    <span >
+                        <input type="text" id="add_domain" class="options_bottom_text_box">
+                        <button id="add_domain_list">
+                            add
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div id="domain_list"></div>
+            <!--
+            <div class="page_row" style="margin-bottom: 10px;">
+            <span>
+                Number Filter:
+                <img src="../img/q.png" class="qtip" id="number_filter_tip">
+            </span>
+                <br>
+                <span>
+                <input id="number_whitelist_radio" type=radio class="number_filter" name="number_filter"
+                       value="number_whitelist" style="margin-left: 10px;">
+                White List
+                <input id="number_blacklisted_radio" type=radio class="number_filter" name="number_filter"
+                       value="number_blacklist">
+                Black List
+                <input id="number_nofilter_radio" type=radio class="number_filter" name="number_filter"
+                       value="number_nofilter" checked="checked">
+                None
+            </span>
+            </div>
+            <div id="number_list_container">
+                <span class="left_column_tab2">
+                    Add Number:
+                    <img src="../img/q.png" class="qtip" id="number_list_tip">
+                </span>
+                <div class="right_column_tab2_page2">
+                    <span >
+                        <input type="text" id="add_number" class="options_bottom_text_box">
+                        <button id="add_number_list">
+                            add
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div id="number_list"></div>
+            -->
+        </div>
+
+        <div id="tab4_content" class="tab_content">
+            What would you like to know about:
+            <div>
+                <span id="_how_to_use" class="toggle" style="display:inline-block;">
+                    <img id="_how_to_use_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    <span id="_how_to_use_text"></span>
+                </span>
+            </div>
+            <div id="_how_to_use_info" class="help_category" style="display: none;">
+                <hr>
+                <div>
+                    Once the page has finished loading. Simply move your cursor over any phone number on the page.
+                </div>
+                <img id="help_img1" src="../img/help_gif1.gif">
+                Once the tooltip has appeared, clicking it will initiate your call.
+                <hr>
+            </div>
+            <div>
+
+                <span id="_manual_dial"class="toggle" style="display:inline-block;">
+                    <img id="_manual_dial_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    Manual Dial
+                </span>
+            </div>
+            <div id="_manual_dial_info"  class="help_category" style="display: none; margin-top:0;">
+                <div style="margin-left: 15px;">
+                <span id="_manual_dial_1" class="toggle" style="display:inline-block;">
+                    <img id="_manual_dial_1_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    Placing a call through this menu
+                </span>
+                </div>
+                <div id="_manual_dial_1_info"  class="help_category" style="display: none;">
+                    <hr>
+                    <div>
+                        Phone numbers can be typed in this menu by visiting the <span class="jump_to_tab" tab="tab1">Dialpad</span> tab. Pressing any key on your
+                        keyboard will automatically begin typing into the dial pad.
+
+                    </div>
+                    <img src="../img/help_gif2.gif" style="width: 250px; margin: 10px 0 0 5px;">
+                    <div>
+                        When you're ready to dial press enter to place your call.
+                    </div>
+                    <hr>
+                </div>
+                <div style="margin-left: 15px;">
+                <span id="_manual_dial_2" class="toggle" style="display:inline-block;">
+                    <img id="_manual_dial_2_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    Placing a call with a keyboard shortcut
+                </span>
+                </div>
+                <div id="_manual_dial_2_info"  class="help_category" style="display: none;">
+                    <hr>
+                    <div>
+                        In the <span class="jump_to_tab" tab="tab2">Options</span> tab you can set a keyboard shortcut to manually dial a number.
+                    </div>
+                    <img src="../img/help_1.png" class="help_img_large">
+                    <div>
+                        When the selected key is pressed on any page a popup will appear
+                    </div>
+                    <img src="../img/help_gif3.gif" class="help_img_large">
+                    Anytext on the page you have highlighted will be searched for a phone number and entered into this
+                    popup.
+                    <hr>
+                </div>
+                <div style="margin-left: 15px;">
+                <span id="_manual_dial_3" class="toggle" style="display:inline-block;">
+                    <img id="_manual_dial_3_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    Editing a number on the page
+                </span>
+                </div>
+                <div id="_manual_dial_3_info"  class="help_category" style="display: none;">
+                    <hr>
+                    <div>
+                        You may also use the tooltip to dial custom numbers.
+                    </div>
+                    <img src="../img/help_gif4.gif" class="help_img_large">
+                    <div>
+                        Clicking on the edit button on the right side of the tooltip brings up a text box.
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div>
+                <span id="_dismiss_tooltip" class="toggle" style="display:inline-block;">
+                    <img id="_dismiss_tooltip_toggler" class="toggle_plus_img" src="../img/plus.png"/>
+                    Dismissing a tooltip.
+                </span>
+            </div>
+            <div id="_dismiss_tooltip_info" class="help_category" style="display: none;">
+                <hr>
+                <div>
+                    If a tooltip is an inconvience, mousing over the tooltip will reveal a close button.
+                </div>
+                <img src="../img/help_gif5.gif" class="help_img_large">
+                Clicking the <img src="../img/help_3.png" id="help_img3"> will dismiss the tooltip. It will not reappear over this detected phone number again
+                until the page is reloaded.
+                <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="options_tool_tip" class="container">
+    <div id="options_tool_tip_card" class="card tip_card"></div>
+</div>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/axios.min.js"></script>
+<script src="../js/menuTables.js"></script>
+<script src="../config.js"></script>
+<script src="../js/stub.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/modal.js"></script>
+<script src="../js/keybind.js"></script>
+<script src="../js/menu.js"></script>
+</body>
+</html>
