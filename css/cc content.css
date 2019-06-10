@@ -272,28 +272,28 @@
 
 #cc_modal {
     display: none;
-    position: fixed !important;
     text-align: center !important;
+    min-width: 410px !important;
+    max-width: 410px !important;
+    position: fixed !important;
     top: 50% !important;
     left: 50% !important;
     width: 410px !important;
-    min-width: 410px !important;
-    max-width: 410px !important;
     transform: translate(-50%, -50%) !important;
     -webkit-transform: translate(-50%, -50%) !important;
     -ms-transform: translate(-50%, -50%) !important;
-    box-shadow: rgba(0, 0, 0, 0.75) 0 0 39px 12px !important;
-    border-radius: 10px !important;
-    padding: 12px 5px 0px 5px !important;
-    margin: 0 !important;
-    z-index: 999999 !important;
-    background-color: white !important;
-    box-sizing: content-box !important;
-    font-family: "Helvetica Neue", Sans-Serif !important;
     -moz-user-select: none !important;
     -webkit-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+    z-index: 999999 !important;
+    box-sizing: content-box !important;
+    border-radius: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 0 39px 12px !important;
+    padding: 12px 5px 0px 5px !important;
+    margin: 0 !important;
+    background-color: white !important;
+    font-family: "Helvetica Neue", Sans-Serif !important;
 }
 
 #cc_modal_input{
@@ -352,11 +352,11 @@
 }
 
 #cc_modal button:hover {
-    background-color: #a50000 !important;
+    background-color: #ba0000 !important;
 }
 
 #cc_modal button:active {
-    background-color: #cc0000 !important;
+    background-color: #990000 !important;
 }
 
 #cc_modal_info_text{
@@ -374,4 +374,95 @@
     -webkit-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+}
+
+#cc_dialog{
+    display: none;
+    opacity: 0;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    box-shadow: rgba(1, 1, 1, 0.3) 0 2px 3px 1px !important;
+    background-color: white;
+    width: 420px;
+    padding: 20px 15px 15px 15px;
+    font-size:12px;
+
+    position: fixed !important;
+    top: 10% !important;
+    left: 50% !important;
+    margin-left: -210px;
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    z-index: 999999 !important;
+    box-sizing: content-box !important;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    translate3d( 0, 0, 0)
+
+}
+
+#cc_dialog_checkbox_container{
+    padding: 5px 0 10px 0;
+}
+
+.cc_dialog_checkbox {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+
+#cc_dialog_prompt{
+    line-height: 30px;
+    display: inline-block;
+    font-size: 15px;
+}
+
+#cc_dialog_description{
+    font-family: "Helvetica Neue", Sans-Serif !important;
+    font-size: 13px;
+    line-height: 22px;
+    overflow-y: auto;
+    display: block;
+    max-height: 150px;
+    min-height: 22px;
+    margin-top: 5px;
+}
+
+#cc_dialog_button_container{
+    font-family: "Helvetica Neue", Sans-Serif !important;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+    overflow-y: auto;
+    display: block;
+    max-height: 150px;
+    text-align: right;
+}
+
+
+#cc_dialog_button_container button {
+    background-color: #cc0000;
+    border-radius: 5px;
+    color: white;
+    outline-color: white;
+    line-height: 13px;
+    overflow: auto;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+    min-width: 65px;
+    font-family: Verdana,sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#cc_dialog_button_container button:hover {
+    background-color: #ba0000 !important;
+}
+
+#cc_dialog_button_container button:active {
+    background-color: #990000 !important;
 }

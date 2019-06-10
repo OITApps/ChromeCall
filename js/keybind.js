@@ -105,8 +105,13 @@ function checkRaiseModalKeybind(event){
     let key = (96 <= event.keyCode && event.keyCode <= 105)? event.keyCode - 48 : event.keyCode;
 
     if(key === modalKeybindKey && compareArray(pressedModifiers, modalKeybindModifiers) ){
+        if(cc_modal.modalRaised){
+            
+            lowerModal();
+        } else {
 
-        raiseModal(searchHighlighted());
+            raiseModal(searchHighlighted());
+        }
     }
 }
 

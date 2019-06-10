@@ -8,7 +8,7 @@
  stub.js
  search.js
  api.js
- modal.js
+ popup.js
  keybind.js
  */
 
@@ -20,6 +20,8 @@ let optionsSaveAlertStart, optionsSaveAlertEnd;
 let tipHover;
 let saveWaiting;
 let backspaceInterval;
+let voicemail_extension = '5001';
+
 
 //Event listens to be bound when a menu tab is opened
 let tabListeners = {
@@ -31,15 +33,7 @@ let tabListeners = {
 
 $(document).ready(function(){
 
-    if(apiUrl !== '' || typeof apiUrl !== 'undefined'){
-        url = managerPortal + '/ns-api/';
-    } else {
-        url = apiUrl + '/ns-api/';
-    }
-
-    populate();
-    setEventHandlers();
-    restore();
+    init();
 });
 
 /**
@@ -64,7 +58,8 @@ function populate(){
 
     if(company_email !== ""){
 
-        $('#about_info_table').append('<div>Email: <a href="mailto:' + company_email + '?subject=' + extension_name + '" target="blank">' + company_email + '</a></div>');
+        $('#about_info_table').append('<div>Email: <a href="mailto:' + company_email + '?subject=' + extension_name
+            + '" target="blank">' + company_email + '</a></div>');
     }
 
     if(company_website_link !== ""){
@@ -77,7 +72,8 @@ function populate(){
     }
 
     if(managerPortal !== ""){
-        $('#about_info_table').append('<div>Portal: <a href="' + managerPortal + '" target="blank">' + managerPortal + '</a></div>');
+        $('#about_info_table').append('<div>Portal: <a href="' + managerPortal + '" target="blank">' + managerPortal
+            + '</a></div>');
     }
 
     if(company_additional_website_link !== ""){
@@ -116,17 +112,28 @@ function setEventHandlers(){
 
     //store all entries in chrome storage on "Save" button.
     $("#save_button").click(save);
-    //Empty all domain tables on "Clear Page Lists" button.
-    $("#clear_listed_page_button").click(function(){
-        createDomainTable();
-    });
+
     //on add included domain button click
-    $("#add_domain_list").click(addDomain);
+    $("#add_domain_list").on('click', function(){
+        addFilter('domain');
+    });
     //on add included domain textbox enter keypress
     $("#add_domain").on('keypress', function (e) {
         if(e.which === 13){
 
-            addDomain();
+            addFilter('domain');
+        }
+    });
+
+    //on add included domain button click
+    $("#add_number_list").on('click', function(){
+        addFilter('number');
+    });
+    //on add included domain textbox enter keypress
+    $("#add_number").on('keypress', function (e) {
+        if(e.which === 13){
+
+            addFilter('number');
         }
     });
     //login/out user
@@ -155,7 +162,7 @@ function setEventHandlers(){
         let curDomain = $(this);
         if(confirm("Are you sure you want to delete the domain " + curDomain.attr("data-domain") + " from the list?")){
 
-            updateTable(curDomain.attr("data-domain"),  true);
+            updateFilter(curDomain.attr("data-domain"), curDomain.attr("filter"),  true, createFilterTable);
         }
     });
 
@@ -201,11 +208,7 @@ function setEventHandlers(){
             $('#main_menu').hide();
         }
     });
-    //set filter in filter tab textbox.
-    $("input[name='filter']").change(function() {
-        //setFilter(this.value)
-    });
-    //automatically save on change of options elements
+
     $('.triggersSave').change(save).on('input', function(){
 
         if(autoSave){
@@ -213,6 +216,7 @@ function setEventHandlers(){
             optionsSave();
         }
     });
+
     //automatically save without alert on change of options elements
     $('.triggersQuietSave').change(save).on('input', function(){
 
@@ -260,7 +264,7 @@ function setEventHandlers(){
     //On enter keypress for dialpad to make call.
     $('#dialpad_input').on('keypress', function (event) {
 
-        let input = $('#dialpad_input');
+        let input = $(this);
         if (event.which === 13) {
 
             if (input.val().length > 0) {
@@ -282,9 +286,17 @@ function setEventHandlers(){
                 $('#dialpad_input').blur();
             },0);
         }
+    //resize dialpad font if text is overflown.
     }).on('input', function(){
 
-        this.value = this.value.replace(/[^\da-zA-Z#*]/g, '');
+        let input = $(this);
+        input.css('font-size', '30px');
+        let fontSize;
+        while(isOverflown(input[0])){
+
+            fontSize = parseInt(input.css('font-size').replace('px', '')) - 1;
+            input.css('font-size', fontSize + 'px');
+        }
     });
     //Search Short Number Option in options.
     $('#short_number_switch').on('change', function(){
@@ -308,6 +320,62 @@ function setEventHandlers(){
     });
     //Set modal keybind.
     $('#dial_number_display').on('click', resetModalKeybind);
+    //Change which filtered is displayed in the filter tab.
+    $('#filter_select').on('change', function(){
+
+        chrome.storage.sync.get({
+            filter: {
+                shown: 'domain_filter',
+                number: 'nofilter',
+                domain: 'nofilter',
+            }
+        }, function(items) {
+
+            items.shown = $('#filter_select').find(":selected").attr('filter');
+            chrome.storage.sync.set(items);
+        });
+        setFilter();
+    });
+    //Set default behavior for when a user presses the close button on the tooltip. (set from options tab)
+    $('#tooltip_close_button_select').change(function(){
+
+        chrome.storage.sync.set({ closeButtonDefault: $('#tooltip_close_button_select').find(":selected").attr('value')});
+    });
+    //
+    $('input.domain_filter[name=domain_filter]').change(function(){
+
+        updateContent('search');
+    });
+    $('input.number_filter[name=number_filter]').change(function(){
+
+        updateContent('search');
+    });
+
+    $('#devices').on('change', function(){
+
+        let selectedDevice = $('#devices').find(":selected").attr('aor');
+        device = selectedDevice;
+        chrome.storage.sync.set({ device: selectedDevice});
+    });
+
+    $('.power_button_checkbox').on('change', function(){
+
+        let box = $(this);
+        if( box.is(':checked') ){
+
+            chrome.storage.sync.set({enabled: false}, function(){
+
+                updateContent('search');
+            })
+             } else {
+            chrome.storage.sync.set({enabled: true}, function(){
+
+                updateContent('search');
+            })
+
+        }
+    });
+
 }
 
 /**
@@ -315,8 +383,8 @@ function setEventHandlers(){
  */
 function login() {
 
-    let loginName = document.getElementById('login').value;
-    let pass = document.getElementById('pass').value;
+    let loginName = $('#login').val();
+    let pass = $('#pass').val();
     //Get oAuth Token Step 1.
     $.ajax({
         url: url + 'oauth2/token/',
@@ -397,10 +465,14 @@ function save() {
     chrome.storage.sync.set({
         country_initials: $('#country_code').find(":selected").attr('country_initials'),
         country_code: $('#country_code').val(),
-        //device: $('#devices').find(":selected").attr('aor'),
+        device: $('#devices').find(":selected").attr('aor'),
         dialstring_length: $('#dialstring_length').val(),
         intl_prefix: $('#intl_prefix').val(),
-        filter: $('input.filter:checked').val(),
+        filter: {
+            shown: $('#filter_select').find(":selected").attr('filter'),
+            domain: $('input.domain_filter:checked').val(),
+            number: $('input.number_filter:checked').val(),
+        },
     });
 }
 
@@ -420,23 +492,36 @@ function restore() {
         dialstring_length: '11',
         intl_prefix: '011',
         areacode: '',
-        domain_list: {},
-        filter: 'nolist',
         domain: '',
+        domain_list: {},
+        number_list: {},
+        filter: {
+            shown: 'domain_filter',
+            number: 'nofilter',
+            domain: 'nofilter',
+        },
+        closeButtonDefault: 'none',
         shortNumberSearch: false,
         displayNumberBeforeCall: false,
         forceAnswer: false,
         raiseModalKeybind: {modifiers: [], key: ''},
+        token: null,
+        expires_in: null,
+        expires_at: null,
+        refreshToken: null,
+        callHistory: [],
+        enabled: true,
     }, async function(items) {
 
-        if(items.user !== '' && items.pass !== '') {
+        if(items.user !== '' && items.user !== null && items.pass !== '' && items.pass !== null) {
+
             user = items.user;
             pass = items.pass;
             domain = items.domain;
             loginName = items.login_name;
-            //device = items.device;
-            autoSave = false;
+            device = items.device;
 
+            autoSave = false;
             $('.login_name').html(items.login_name);
             $('#extension').html(items.user);
             $('.domain_name').html(items.domain);
@@ -444,27 +529,42 @@ function restore() {
             $('#intl_prefix').val(items.intl_prefix);
             $('#area_code').val(items.areacode);
 
-            /*await getDevices(await checkNSAuthToken({
-                token: items.token,
-                expires_in: items.expires_in,
-                expires_at: items.expires_at,
-                refreshToken: items.refreshToken,
-            }), domain, user);*/
             $('#country_code option[country_initials="' + items.country_initials + '"]').prop('selected', true);
-            $('input.filter[value=' + items.filter + ']').attr('checked', 'checked');
+            $('#filter_select option[filter="' + items.filter.shown + '"]').prop('selected', true);
+            $('#tooltip_close_button_select option[value="' + items.closeButtonDefault + '"]').prop('selected', true);
+            $('input.domain_filter[value=' + items.filter.domain + ']').attr('checked', 'checked');
+            $('input.number_filter[value=' + items.filter.number + ']').attr('checked', 'checked');
+            $('.power_button_checkbox').prop('checked', !items.enabled);
 
             $('#short_number_switch').prop('checked', items.shortNumberSearch);
             $('#display_number_before_call_switch').prop('checked', items.displayNumberBeforeCall);
-            $('#force_call_switch').prop('checked', items.forceAnswer);
-            forceCall = items.forceAnswer;
 
             let raiseModalKeybinds = items.raiseModalKeybind.modifiers.slice();
             raiseModalKeybinds[raiseModalKeybinds.length] = items.raiseModalKeybind.key;
             setRaiseModalKeybindMenuText(raiseModalKeybinds);
 
-            createDomainTable(items.domain_list[items.user]);
-            //setFilter(items.filter);
+            //Create DOM elements for filter tables in filter tabs.
+            createFilterTable(items.domain_list[items.user], 'domain');
+            createFilterTable(items.number_list[items.user], 'number');
 
+            //Promises for calls requiring oAuth Token.
+            new Promise(function(resolve){
+
+                checkNSAuthToken({
+                    token: items.token,
+                    expires_in: items.expires_in,
+                    expires_at: items.expires_at,
+                    refreshToken: items.refreshToken,
+                    promise: resolve,
+                });
+            }).then(function(token){
+
+                //Populate Devices
+                promiseDevice(token);
+                //Populate CallHistory
+                promiseCallHistory(token);
+            });
+            setFilter();
             setTab('tab1');
             save();
             autoSave = true;
@@ -487,9 +587,11 @@ function logout(){
         intl_prefix: '011',
         country_initials:'',
         country_code: '',
-        //device: null,
+        device: null,
         areacode: '',
         filter: 'none',
+        domain_list: {},
+        number_list: {},
         logged: false,
         active_tab: 'tab1',
         token: null,
@@ -501,7 +603,8 @@ function logout(){
         forceAnswer: false,
         raiseModalKeybind: {modifiers: [], key: ''},
     }, function() {
-        createDomainTable();
+        createFilterTable('', 'domain');
+        createFilterTable('', 'number');
         $('.login_name').html('');
         $('#loginName').val('');
         $('#pass').val('');
@@ -555,54 +658,18 @@ function invalidLogin(){
 
 
 /**
- * Generate list of table elements then pass to createDomainTable.
- * @param domain: URL Domain.
- * @param excludeDomain: Do not store domain if true.
- */
-function updateTable(domain, excludeDomain = false){
-
-    let data = new Array();
-    let td;
-
-    $('#domain_list table').find('row').each(function(){
-
-
-        td = $(this).find("td").eq(0);
-        if(td.text()!==domain){
-
-            data.push(td.text());
-        }
-    });
-    if(!excludeDomain) {
-
-        data.push(domain)
-    }
-    let elementString = data.join(",");
-    chrome.storage.sync.get({
-        domain_list: {},
-        'user': ''
-    }, function(items) {
-
-        items.domain_list[items.user] = elementString;
-        chrome.storage.sync.set({
-            domain_list: items.domain_list
-        });
-        createDomainTable(elementString);
-    });
-}
-
-
-/**
  * handler for include domain textbox
  */
-function addDomain(){
+function addFilter(filter){
 
-    let curDomain = extractDomain($("#add_domain").val());
-    if ($.trim(curDomain) !== "") {
+    let input = $('#add_' + filter);
+    let curDomain = extractDomain(input.val());
+    if ($.trim(curDomain) !== '') {
 
-        updateTable(curDomain);
+        updateFilter(curDomain, filter, null, createFilterTable);
     }
-    $("#add_domain").val("");
+
+    input.val('');
 }
 
 
@@ -636,27 +703,27 @@ function extractDomain(url) {
  * Table Columns are populated from parsed string (data)
  * @param data: string to parse data elements from.
  */
-function createDomainTable(data = '', filter){
+function createFilterTable(data = '', filter){
 
-    //erase current table and remake it.
-    $('#' + filter + '_list').empty();
+    let table, row;
+    let listElement = $('#' + filter + '_list');
+    listElement.empty();
     table = $("<table />");
     if(data !== ""){
 
         let tokens = data.split(",");
         for(let i in tokens){
             row = $("<row />");
-            $('<td>').text(tokens[i]).addClass('list_td').appendTo(row);
-            $("<td>").addClass("del_td").html(
-                "<img src='img/del.png' alt='Delete' class='del_domain'"  + "' data-domain='"  + tokens[i] + "' >"
+            $('<td class="list_td">' + tokens[i] + '</td>').appendTo(row);
+            $('<td class = del_td>' +
+                '<img src="../img/del.png" alt="Delete" class="del_domain" data-domain="'  + tokens[i] + '" filter="'
+                + filter + '">'
             ).appendTo(row);
             row.appendTo(table);
         }
-    }
-    $('#domain_list').append(table);
 
-    if(data === ''){ $('#domain_list').css('display', 'none') }
-    else { $('#domain_list').css('display', 'block') }
+    }
+    listElement.append(table);
 }
 
 /**
@@ -664,6 +731,9 @@ function createDomainTable(data = '', filter){
  * @param id
  */
 function setTab(id){
+
+    let tabHeight = 30;
+    let tabHeightOffset = 3;
 
     for (let tab in tabListeners) {
 
@@ -687,16 +757,14 @@ function setTab(id){
                         $('html').on(listener, tabListeners[tab][listener])
                     }
                 }
-
             }
-
         } else {
 
             $('#' + tabs[i].id).removeClass('active_tab');
             $('#' + tabs[i].id + '_content').css('display', 'none');
         }
     }
-    $('#main_menu').css('display', 'none');
+    $('#main_menu').css({display: 'none', height: (tabs.length * tabHeight) + tabHeightOffset + 'px'});
 }
 
 /**
@@ -717,35 +785,21 @@ function tab1KeyPressHandler(){
  */
 function tab3KeyPressHandler(){
 
-    if($('#domain_list_container').css('display') !== 'none'){
+    let filter = $('#filter_select').find(":selected").attr('filter');
+    if(filter === 'domain_filter' && $('#domain_list_options').css('display') !== 'none'){
 
         let input = $('#add_domain');
         if(!input.is(":focus")){
 
             input.focus();
         }
-    }
-}
+    } else if(filter === 'number_filter' && $('#number_list_options').css('display') !== 'none'){
 
-/**
- * Set which filter the user wants to use.
- * @param filter: enum {Whitelist, Blacklist, nolist} which filter the user wants to use.
- */
+        let input = $('#add_number');
+        if(!input.is(":focus")){
 
-function setFilter(filter){
-    if (autoSave) {
-
-        save();
-    }
-    if (filter === 'nolist') {
-
-        $('#domain_list').css('display', 'none');
-        $('#domain_list_container').css('display', 'none');
-    } else {
-
-        $('#domain_list').css('display', 'block');
-        $('#domain_list_container').css('display', 'block');
-
+            input.focus();
+        }
     }
 }
 
@@ -913,14 +967,14 @@ function clickDuringSetModalKeybind(){
  * clear modal keybind and prepare to set again or leave unset.
  */
 function resetModalKeybind(){
-    
+
     chrome.storage.sync.set({
         raiseModalKeybind: {
             key: '',
             modifiers: []
         }
     }, function(){
-        
+
         $('#dial_number_display')
             .css('outline', '1px solid red')
             .off('click', resetModalKeybind);
@@ -930,55 +984,252 @@ function resetModalKeybind(){
     });
 }
 
-/**
- * Retrieve List of devices from PBX.
- * @param accessToken
- * @param domain
- * @param user
- * @returns {Promise<*>}
- */
-async function getDevices(accessToken, domain, user){
+function setFilter(){
 
-    devices = [];
-    response = await nsCall('post', null,
-    {
-        object: 'device',
-        action: 'read',
-        domain: domain,
-        user: user,
-    },
-    {"Content-Type": 'application/x-www-form-urlencoded',
-        "Authorization": "Bearer " + accessToken,},
-    function(response, exception){
+    let filter = $('#filter_select').find(":selected").attr('filter');
+    if(filter === 'domain_filter'){
 
-        log('Could not retrieve devices.');
-        log(response);
-        log(exception);
-        return response;
-    },
-    function (response) {
+        $('#domain_list_options').css('display', 'block');
+        $('#number_list_options').css('display', 'none');
 
-        for(let i = 0; i < response.data.length; i++){
-            devices[devices.length] = {
-                aor: response.data[i].aor,
-                userAgent: response.data[i].user_agent
-            };
-            $("<option />")
-                .attr("aor", response.data[i].aor)
-                .text(response.data[i].user_agent)
-                .appendTo("#devices");
-        }
-        if(device){
+    } else if (filter === 'number_filter'){
 
-            $('#devices option[aor="' + device + '"]').prop('selected', true);
-            chrome.storage.sync.set({ device });
-        } else {
+        $('#number_list_options').css('display', 'block');
+        $('#domain_list_options').css('display', 'none');
+    }
+    tab3KeyPressHandler();
+}
 
-            device = response.data[0].aor;
-            chrome.storage.sync.set({ device: response.data[0].aor });
+function setDeviceOptions(devices){
+
+    for(let i = 0; i < devices.length; i++){
+
+        $("<option />")
+            .attr("aor", devices[i].aor)
+            .text(devices[i].model)
+            .appendTo("#devices");
+    }
+    if(device){
+
+        $('#devices option[aor="' + device + '"]').prop('selected', true);
+    } else {
+
+        device = $("#devices").prop("selectedIndex", 0).attr('aor');
+        chrome.storage.sync.set({ device });
+    }
+}
+
+function init(){
+
+    if(apiUrl !== '' || typeof apiUrl !== 'undefined'){
+        url = managerPortal + '/ns-api/';
+    } else {
+        url = apiUrl + '/ns-api/';
+    }
+
+    populate();
+    setEventHandlers();
+    restore();
+
+    chrome.runtime.onMessage.addListener(function(request) {
+
+        if (request.type === 'filter') {
+            chrome.storage.sync.get({
+                user: '',
+                domain_list: {},
+                number_list: {},
+            }, function(items){
+
+                createFilterTable(items.domain_list[items.user], 'domain');
+                createFilterTable(items.number_list[items.user], 'number');
+            });
         }
     });
-    return response;
+}
+
+function populateCallHistory(calls){
+    let tableBody = $('#call_history_table_body');
+    tableBody.empty();
+    let call;
+    for(let i = 0; i < calls.length; i++) {
+        call = calls[i];
+        tableBody.append(generateCallHistoryRow(call.number, call.type, call.name, call.start, call.domain));
+    }
+    $('#call_history_table_body tr').off().on('click', callHistoryClick);
+}
+
+function getTimeStr(curDate){
+
+    let newDate;
+    let thisDate = new Date();
+    let thisDay = thisDate.getDate();
+    let curDateDay = curDate.getDate();
+    let thisMonth = thisDate.getMonth() + 1;
+    let curDateMonth = curDate.getMonth() + 1;
+    if(thisDay === curDateDay && thisMonth === curDateMonth){
+
+        newDate = 'Today';
+    } else if(thisDay === curDateDay + 1 && thisMonth === curDateMonth){
+
+        newDate = 'Yesterday';
+    } else {
+
+        newDate = curDate.getFullYear()
+            + '/' + (curDateMonth < 10 ? '0' + curDateMonth : curDateMonth)
+            + '/' + (curDateDay < 10 ? '0' + curDateDay : curDateDay);
+    }
+
+
+
+    let hour = curDate.getHours();
+    let meridiem = 'am';
+    if(hour === 0){
+
+        hour = 12;
+    } else if(hour === 12){
+
+        meridiem = 'pm';
+    } else if(hour > 12){
+
+        hour = hour - 12;
+        meridiem = 'pm';
+    }
+    let minutes = curDate.getMinutes();
+    let time = hour + ':' + (minutes < 10 ? '0' + minutes: minutes) + meridiem;
+    return {date: newDate, time}
 }
 
 
+//Populate CallHistory
+function promiseCallHistory(token){
+
+    new Promise(function(resolve){
+
+        getCallHistory(token, domain, user, resolve);
+    }).then(function(calls){
+
+        populateCallHistory(calls);
+    });
+}
+//Populate Devices
+function promiseDevice(token){
+
+    new Promise(function(resolve, reject){
+
+        getDevices(token, domain, user, resolve);
+    }).then(function(newDeviceList){
+        devices = newDeviceList;
+        setDeviceOptions(newDeviceList);
+    });
+}
+
+function generateCallHistoryRow(callNumber, callType, callName, callStart, callDomain) {
+    console.log('GCHR');
+    console.log(callNumber);
+    console.log(callType);
+    console.log(callName);
+    console.log(typeof callName);
+    console.log(callStart);
+    console.log(callDomain);
+    let displayNumber, iconSrc;
+    callNumber = (callNumber === 'null' || callNumber === 'undefined') ? '' : callNumber;
+    callType = (callType === 'null' || callType === 'undefined' || !callType) ? '' : parseInt(callType);
+    callName = (callName === 'null' || callName === 'undefined') ? '' : callName;
+    callStart = (callStart === 'null' || callStart === 'undefined') ? '' : callStart;
+    callStart = (typeof callStart == 'string') ? parseInt(callStart) : callStart;
+    curDate = getTimeStr(new Date(callStart));
+    callDomain = (callDomain === 'null' || callDomain === 'undefined') ? '' : callDomain;
+
+    switch(callType){
+        case 0:
+            iconSrc = '../img/call incoming.png';
+            displayNumber = callNumber.replace('sip:', '').replace(/['"]/g, '').split('@')[0];
+            callNumber = cleanNumber(callNumber.replace('sip:', '').split('@')[0]);
+            break;
+        case 1:
+            iconSrc = '../img/call outgoing.png';
+            displayNumber = callNumber;
+            callNumber = cleanNumber(callNumber) + '@' + callDomain;
+            break;
+        case 2:
+            iconSrc = '../img/call incoming missed.png';
+            displayNumber = callNumber.replace('sip:', '').replace(/['"]/g, '').split('@')[0];
+            callNumber = cleanNumber(callNumber.replace('sip:', '').split('@')[0]);
+            break;
+        case 3:
+            iconSrc = '../img/call outgoing.png';
+            displayNumber = callNumber.replace('sip:', '').replace(/['"]/g, '').split('@')[0];
+            callNumber = cleanNumber(callNumber.replace('sip:', '').split('@')[0]);
+            break;
+        case 4:
+            iconSrc = '../img/call outgoing.png';
+            displayNumber = callNumber;
+            callNumber = cleanNumber(callNumber) + '@' + callDomain;
+            break;
+        case 5:
+            iconSrc = '../img/call outgoing.png';
+            displayNumber = callNumber.replace('sip:', '').replace(/['"]/g, '').split('@')[0];
+            callNumber = cleanNumber(callNumber.replace('sip:', '').split('@')[0]);
+            break;
+    }
+    callType = callType % 3;
+
+    if(callName){
+
+        numberClass = 'tab2_history_number_with_sub'
+    } else {
+
+        numberClass = 'tab2_history_number'
+    }
+    let row = $(
+        '<tr number="' + callNumber + '" ' +
+        'type="' +  + callType + '" ' +
+        'name="' + callName + '" ' +
+        'start="' + callStart + '">' +
+        'domain="' + callDomain + '">' +
+            '<td class="tab2_history_phone_icon_td">' +
+                '<img src="' + iconSrc + '">' +
+            '</td>' +
+            '<td >' +
+                '<div class="' + numberClass + '">' + displayNumber + '</div>' +
+                '<div class="tab2_history_number_sub">' + (callName ? callName : '') + '</div>' +
+            '</td>' +
+            '<td>' +
+                '<div class="tab2_history_date">' + curDate.date + '</div>' +
+            '</td>' +
+            '<td>' +
+                '<div class="tab2_history_time">' + curDate.time + '</div>' +
+            '</td>' +
+        '</tr>'
+    );
+    row.on('click', callHistoryClick);
+    return row;
+}
+
+function callHistoryClick(){
+    let args = {
+        destination: $(this).attr('number'),
+        type: '' + (parseInt($(this).attr('type')) + 3),
+        name: $(this).attr('name'),
+        start: $(this).attr('start'),
+        domain: $(this).attr('domain'),
+    };
+
+    args.func = function(args) {
+        $('#call_history_table_body tr:last').remove();
+        $('#call_history_table_body')
+            .prepend(generateCallHistoryRow(
+                args.destination,
+                args.type,
+                args.name,
+                args.start,
+                args.domain,
+            ));
+        menuTip('Call placed to ' + args.destination, null, 'center', 500);
+        setTimeout(function(){
+
+            $('#options_tool_tip').fadeOut();
+        }, 2500);
+    };
+    makeCall(null, args);
+}

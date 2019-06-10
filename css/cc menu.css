@@ -1,7 +1,7 @@
 html {
     font-family: "Roboto","LocalRoboto","Helvetica Neue","Helvetica","sans-serif";
     font-size: 14px;
-    height: 348px;
+    height: 445px;
     width: 350px;
 }
 
@@ -145,7 +145,6 @@ hr {
     display: inline-block;
     width: 100%;
     text-align: center;
-    margin-top: 5px;
 }
 
 .login_name, .domain_name {
@@ -168,37 +167,154 @@ hr {
     line-height: 24px;
 }
 
-#tab2_content, #tab5_content {
+#tab1_content{
+    position: relative;
+    height: 348px;
+}
+#tab2_content table{
+    width: 100%;
+    margin-top: -10px;
+}
+
+#tab2_company_info{
+    text-align: center;
+    line-height: 24px;
+}
+
+.about_logo {
+    margin: 35px 0px;
+}
+.about_logo img{
+    flex: 1 0 auto;
+}
+
+#about_info_table_container{
+    flex: 0 1 auto;
+}
+
+#banner_container{
+    margin-bottom: 15px;
+    text-align: center;
+}
+.banner {
+    height: 64px;
+    width: 256px;
+    position: relative;
+    right: 5px;
+}
+
+#call_history_table_body tr {
+    border-top: 1px solid lightgray;
+    line-height: 29px;
+}
+
+#call_history_table_body tr:hover {
+    background-color: #A4A4A4 !important;
+}
+
+#call_history_table_body tr:nth-child(even) {
+    background-color: #F0F0F0;
+}
+
+#tab2_content td {
+    padding: 0px;
+
+    margin-top:5px;
+    font-size: 14px;
+}
+
+.tab2_history_phone_icon_td{
+    text-align: center;
+}
+
+.tab2_history_phone_icon_td img{
+    width:20px;
+    margin: 2px;
+}
+
+.tab2_history_number {
+    line-height: 16px;
+    max-width: 150px;
+    overflow: hidden;
+    margin: 2px 2px 0 0;
+    font-size: 16px;
+}
+
+.tab2_history_number_with_sub {
+    line-height: 16px;
+    max-width: 150px;
+    overflow: hidden;
+    margin-right: 2px;
+    font-size: 14px;
+}
+
+.tab2_history_number_sub{
+    display: block;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    font-size: 10px;
+    margin: 0 0 3px 10px;
+    line-height: 10px;
+}
+
+.tab2_history_date{
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.tab2_history_time{
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0 10px;
+}
+
+
+.tab2_row_phone_icon{
+    color: green;
+    font-size: 12px;
+    position: relative;
+    top:2px;
+}
+
+
+#tab3_content {
     height: 100%;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#tab2_content_main{
+#tab3_content_main{
     height: 100%;
     width: 100%;
 }
 
-#tab2_content_main div{
+#tab3_content_main div{
     display: inline-block;
     padding:0px;
 }
 
-#tab2_content_main .page1 {
+#tab3_content_main .page1 {
     height: 275px;
     padding-left: 8px;
     padding-top: 30px;
     padding-bot: 10px;
 }
 
-#tab2_content_header {
+#tab1_content_header, #tab3_content_header {
     width: 100%;
-    height: 60px;
+    height: 45px;
+    margin-top: -8px;
 }
 
+#tab2_content_header {
+    width: 100%;
+    height: 54px;
+    margin-top: -8px;
+}
 
-#tab2_content_header hr {
+#tab3_content_header hr {
     position: relative;
     right: 20px;
     margin-top: 15px;
@@ -207,29 +323,23 @@ hr {
     width: 350px;
 }
 
-
-
-
-
-#tab3_content {
-    padding-top: 10px;
-    padding-bottom: 0px;
-}
-
-#tab3_content .page_row{
-    margin-bottom: 0px;
-    margin-top: 0px !important;
+#tab4_content {
+    padding: 0 10px;
 }
 
 
-.left_column_tab2{
+.page_row{
+    margin-bottom: 9px !important;
+}
+
+.left_column_tab3{
     display: inline-block;
     text-align: left;
     width: 245px;
     line-height: 24px;
 }
 
-.left_column_radio_tab2{
+.left_column_radio_tab3{
     display: inline-block;
     text-align: left;
     width: 215px;
@@ -244,11 +354,10 @@ hr {
     margin-left: 25px;
 }
 
-.right_column_tab2{
+.right_column_tab3{
     display: inline-block;
     margin-right: 5px;
     width: 40px;
-
 }
 
 #dial_number_display{
@@ -262,40 +371,38 @@ hr {
     line-height: 22px;
 }
 
-
-.right_column_tab2 button{
+.right_column_tab3 button{
     position: relative;
     top: 1px;
     left: 1px;
     width: 45px;
 }
 
-.right_column_tab2 button:active{
+.right_column_tab3 button:active{
     background-color: #960007;
 }
 
-.right_column_tab2_page2 {
+.right_column_tab3_page2 {
     height: 22px;
     width: 100%;
     margin-left: 20px;
 }
 
-#tab2_content_pager{
+#tab3_content_pager{
     width: 100%;
     text-align: center;
     height: 25px;
 }
 
-
-#tab2_content_pager .previous,
-#tab2_content_pager .next{
+#tab3_content_pager .previous,
+#tab3_content_pager .next{
     background-color: #f1f1f1;
     color: black;
     height: 22px;
     line-height: 20px;
 }
 
-#tab2_content_pager a{
+#tab3_content_pager a{
     text-decoration: none;
     display: inline-block;
     padding-right: 16px;
@@ -304,37 +411,24 @@ hr {
     padding-top: 0px;
 }
 
-#tab2_content_pager a:hover{
+#tab3_content_pager a:hover{
     background-color: #ddd;
     color: black;
 }
 
 
 
-#tab4_content {
+#tab5_content {
     overflow: auto;
 }
 
-#tab4_content div{
+#tab5_content div{
     margin-top: 10px;
-}
-
-#tab5_content_body {
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-}
-
-.tab5_info_row {
-    width: 100%;
-    height: 21px;
-    text-align: center;
 }
 
 #dialpad_header {height: 50px;
     width: 330px;
-    margin-left: 12px;
-
+    margin: 10px 0 10px 12px;
 }
 
 #dial_pad_announce{
@@ -474,15 +568,15 @@ i.fa-backspace{
 #add_domain_list, #add_number_list{
     line-height: 19px;
     overflow: auto;
+    border: 1px solid black;
 }
 
-#domain_list, #number_list,
-#number_blacklist, #domain_blacklist {
+#domain_list, #number_list {
     padding: 3px;
     line-height: 20px;
     margin: 5px 5px 5px 13px;
     overflow: auto;
-    height: 205px;
+    height: 155px;;
 }
 
 .filter_select_label{
@@ -490,9 +584,16 @@ i.fa-backspace{
     width:80px;
 }
 
-.filter_select{
+#filter_select, #tooltip_close_button_select{
     display: inline-block;
-    width: 225px;
+    width: 220px;
+
+}
+
+#filter_select_label,
+#tooltip_close_button_select_label{
+    width: 85px;
+    display: inline-block;
 
 }
 
@@ -536,6 +637,7 @@ row {
 #login_button{
     height:35px;
     width:50px;
+    border: 1px solid black;
 }
 
 .center_parent {
@@ -552,28 +654,6 @@ row {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
-.about_logo {
-    margin: 20px 0px;
-}
-.about_logo img{
-    flex: 1 0 auto;
-}
-
-#about_info_table_container{
-    flex: 0 1 auto;
-}
-
-#banner_container{
-    margin-bottom: 15px;
-    text-align: center;
-}
-.banner {
-    height:64px;
-    width:256px;
-}
-
-
 .help_category {
     margin-top: 0px;
     margin-left:20px;
@@ -649,14 +729,14 @@ row {
     font-weight: normal;
 }
 
-input[type=checkbox]{
+.option_switch{
     height: 0;
     width: 0;
     visibility: hidden;
     display: inline;
 }
 
-label {
+.option_switch_label {
     display: inline-block;
     cursor: pointer;
     text-indent: -9999px;
@@ -669,7 +749,7 @@ label {
     margin-bottom: 0;
 }
 
-label:after {
+.option_switch_label:after {
 
     content: '';
     position: absolute;
@@ -682,16 +762,52 @@ label:after {
     transition: 0.3s;
 }
 
-input:checked + label {
+.option_switch:checked + label {
     background: #769b00;
 }
 
-input:checked + label:after {
+.option_switch:checked + label:after {
     left: calc(100% - 2px);
     transform: translateX(-100%);
 }
 
-label:active:after {
+.option_switch_label:active:after {
     width: 24px;
 }
 
+
+.power_button_container {
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+}
+
+.power_button {
+    /*
+    width: 28px;
+    height: 28px;
+     */
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    content:url('chrome-extension://__MSG_@@extension_id__/img/power button.png');
+    background-size: 100%;
+}
+
+.power_button:hover{
+    content:url('chrome-extension://__MSG_@@extension_id__/img/power button hover.png');
+}
+
+.power_button_checkbox:checked + .power_button{
+    content:url('chrome-extension://__MSG_@@extension_id__/img/power button off.png');
+}
+.power_button_checkbox:hover:checked + .power_button{
+    content:url('chrome-extension://__MSG_@@extension_id__/img/power button off hover.png');
+}
+
+.power_button_checkbox {
+    display: none;
+}

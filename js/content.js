@@ -7,17 +7,17 @@
  js/stub.js,
  js/search.js,
  js/api.js,
- js/modal.js,
+ js/popup.js,
  js/keybind.js
  */
 
-const ignoreNode = ['STYLE', 'SCRIPT', "INPUT", "TEXTAREA", 'IFRAME', 'CANVAS'];
-const numberDecoy = ';:^^';
 let pageHost = window.location.hostname.replace(/www./g, "");
 let countryCode = '';
 let internationalPrefix = '';
 let areaCode = '';
 let loaded = false;
+let closeButtonDefault = null;
+let hardCodedPageBlacklist = ['google', 'manage.oitvoip.com'];
 
 window.onload = function() {
     if (!licenceCheck()) return;
@@ -175,6 +175,8 @@ cc_tip = {
         if(!$(cc_tip.mouseedOverWrapper).prop('disabled')
             && event.target.id !== 'cc_tip_raise_modal_button'
             && event.target.id !== 'cc_tip_raise_modal_backdrop'
+            && event.target.id !== 'cc_tip_close_button'
+            && event.target.id !== 'cc_tip_close_button_backdrop'
             && !cc_modal.modalRaised) {
 
             log('cc_tip.click()');
@@ -241,12 +243,55 @@ function generatetooltip() {
 
     cc_tip.closeButtonBackdrop.on('click', function(){
 
-        if(cc_tip.mouseedOverWrapper){
-
-            $(cc_tip.mouseedOverWrapper).prop('disabled', true);
-        }
         cc_tip.tooltip.css({display: 'none', opacity: 0});
-    })
+        let target = $(cc_tip.mouseedOverWrapper);
+        console.log(target);
+        //remove wrapper
+        if(target){
+
+            target.prop('disabled', true);
+            if(closeButtonDefault === 'current'){
+
+                target.prop('disabled', true);
+            } else if(closeButtonDefault === 'all'){
+
+                target.prop('disabled', true);
+                chrome.storage.sync.set({closeButtonDefault: 'all'}, function(){
+
+                    filterOut(target.attr('data-cc-number'), 'number');
+                });
+            } else {
+
+                let targetNumber = target.html();
+                let targetCleanNumber = target.attr('data-cc-number');
+                let extMoniker = '';
+                if(extension_name){
+                    extMoniker = extension_name
+                }
+                ccAlert(extMoniker, 'Would you like ' + extMoniker
+                    + ' to ignore ' + targetNumber + '?',
+                {
+                    text: 'Just once',
+                    click: function(){
+
+                        target.prop('disabled', true);
+                        closeButtonDefault = 'current';
+                        chrome.storage.sync.set({closeButtonDefault: 'current'});
+                    },
+                },{
+                    text: 'Always',
+                    click: function(){
+
+                        closeButtonDefault = 'all';
+                        chrome.storage.sync.set({closeButtonDefault: 'all'}, function(){
+                            filterOut(targetCleanNumber, 'number');
+                        });
+                    },
+                });
+            }
+            $(target).replaceWith(target.contents())
+        }
+    });
 
 
     cc_tip.raiseModalBackdrop.on('click', function(){
@@ -263,7 +308,7 @@ function generatetooltip() {
  * @param str: Input string list of domains
  * @returns Array: array of domains
  */
-function getDomains(str) {
+function getDomainFilterItems(str) {
 
     let outArr = [];
     let pageHost = window.location.hostname;
@@ -276,7 +321,7 @@ function getDomains(str) {
 
             if (
                 pageHost.search(
-                strArr[i].replace("*.", "").replace("*", "")
+                    strArr[i].replace("*.", "").replace("*", "")
                 ) !== -1
             ){
 
@@ -286,7 +331,6 @@ function getDomains(str) {
     }
     return outArr;
 }
-
 
 /**
  * Finds all number wrappers added by wrapNode() and assigns event listens to them.
@@ -391,7 +435,7 @@ function domainIsFiltered(filter, domainList){
     //if Included domains includes any asterisks.
     if (domainList.search(/\*/g) !== -1) {
 
-        domainListStar = getDomains(domainList);
+        domainListStar = getDomainFilterItems(domainList);
     }
     //List Set to Whitelist and current page is on domain list.
     let isWhiteListed = (
@@ -414,12 +458,15 @@ function domainIsFiltered(filter, domainList){
 
 /**
  * Enables and Disables mouseover handlers based on whether or not the user is logged in.
- * @param logged
+ * @param logged if the extension has a logged in user
+ * @param enabled if the extension is set to be enabled by logged in user.
  */
-function activateTooltip(logged){
+function activateTooltip(logged, enabled){
 
-
-    if(logged){
+    console.log('Load:');
+    console.log(logged);
+    console.log(enabled);
+    if(logged && enabled){
 
         assignHandlers();
     } else{
@@ -433,12 +480,8 @@ function activateTooltip(logged){
  */
 function init(){
 
-    if(loaded){return}
+    if(loaded || !licenceCheck()){return}
     loaded = true;
-    if(window.location.href.indexOf('google') > -1){
-
-        return;
-    }
 
     generateModal('Call', function() {
 
@@ -464,11 +507,11 @@ function init(){
 
             getOptions();
         } else if(request.type === 'search'){
-            chrome.storage.sync.get({logged: false,}, function(items) {
+            chrome.storage.sync.get({logged: false, enabled: true}, function(items) {
 
                 makePhoneLinks();
                 loadKeybinds();
-                activateTooltip(items.logged);
+                activateTooltip(items.logged, items.enabled);
             });
         } else if(request.type === 'keybind') {
             loadKeybinds()
@@ -508,9 +551,11 @@ function getOptions(){
         expires_in: null,
         expires_at: null,
         refreshToken: null,
+        closeButtonDefault: null,
+        enabled: true,
     }, function(items) {
 
-        if (domainIsFiltered(items.filter, items.domain_list[items.user])) {
+        if (domainIsFiltered(items.filter.domain, items.domain_list[items.user])) {
             let tempExtensionInitials1, tempExtensionInitials2;
             if(extension_initials === ''){
                 tempExtensionInitials1 = 'Extension';
@@ -534,9 +579,10 @@ function getOptions(){
             loginName = items.login_name;
             areaCode = parseInt(items.areacode);
             device = items.device;
-            cc_tip.displayNumberBeforeCall = items.displayNumberBeforeCall;
 
-            activateTooltip(items.logged);
+            cc_tip.displayNumberBeforeCall = items.displayNumberBeforeCall;
+            closeButtonDefault = items.closeButtonDefault;
+            activateTooltip(items.logged, items.enabled);
 
             $('body').on('keydown', {keyFunc: checkRaiseModalKeybind}, keyPressDown)
                 .on('keyup', keyPressUp);
@@ -544,7 +590,7 @@ function getOptions(){
             log(extension_initials + ' Extension will run');
         } else {
 
-            activateTooltip(items.logged);
+            activateTooltip(items.logged, items.enabled);
         }
     });
 }
@@ -637,6 +683,15 @@ function errorFlash(){
  * @returns {boolean}
  */
 function licenceCheck(){
+
+    for(let i = 0; i < hardCodedPageBlacklist.length; i++){
+
+        if(window.location.href.indexOf(hardCodedPageBlacklist[i]) > -1){
+
+            return false;
+        }
+
+    }
 
     return true;
 }

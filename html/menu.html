@@ -46,42 +46,48 @@
                 Dialpad
             </div>
             <div id="tab2" class="tab">
-                Options
+                History
             </div>
             <div id="tab3" class="tab">
-                Filters
+                Options
             </div>
             <div id="tab4" class="tab">
+                Filters
+            </div>
+            <div id="tab5" class="tab">
                 Help
             </div>
             <div id="logout_tab" class="tab">
                 Logout
             </div>
         </div>
+        <div id="dialpad_header">
+            <!--<span id="dial_pad_announce">Dialed</span>-->
+            <button id="dialpad_voicemail">
+                <img src="../img/voicemail%20white.png">
+            </button>
+            <input type=text id="dialpad_input" spellcheck="false">
+            <button id="dialpad_backspace">
+                <i class="fas fa-backspace" style="color: white;"></i>
+            </button>
+        </div>
         <div id="tab1_content">
-            <div id="dialpad_header">
-                <!--<span id="dial_pad_announce">Dialed</span>-->
-                <button id="dialpad_voicemail">
-                    <img src="../img/voicemail%20white.png">
-                </button>
-                <input type=text id="dialpad_input" spellcheck="false">
-                <button id="dialpad_backspace">
-                    <i class="fas fa-backspace" style="color: white;"></i>
-                </button>
-            </div>
-            <div class="tab5_info_row" style="margin-top: 5px;">
-                    <span class="dialpad_login_name">
+            <div id="tab1_content_header">
+                    <span class="login_name_left">
                         User:<span class="login_name"></span>
                     </span>
-            </div>
-            <div class="tab5_info_row" style="margin-bottom: 5px;">
-                <span class="dialpad_domain">
-                    Domain:
-                    <span class="domain_name"></span>
+
+                <br>
+                <span class="domain_left">
+                    Domain:<span class="domain_name"></span>
                 </span>
+                <div class="power_button_container">
+                    <input class="power_button_checkbox" type="checkbox" id="myCheckbox1" />
+                    <label class="power_button" for="myCheckbox1"></label>
+                </div>
             </div>
             <hr>
-            <div id="tab5_content_body" style="text-align: center;">
+            <div  id="tab2_company_info">
                 <div class="about_logo">
                     <img class="banner" src="../icons/banner.png"><img/>
                 </div>
@@ -91,9 +97,35 @@
                 </div>
             </div>
         </div>
-        <div id="tab2_content">
-            <div id="tab2_content_main">
-                <div id="tab2_content_header">
+        <div id="tab2_content" style="display: block;">
+            <div id="tab2_content_header">
+                    <span class="login_name_left">
+                        User:<span class="login_name"></span>
+                    </span>
+
+                <br>
+                <span class="domain_left">
+                        Domain:<span class="domain_name"></span>
+                    </span>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                </tr>
+                </thead>
+                <tbody id="call_history_table_body"></tbody>
+            </table>
+        </div>
+        <div id="tab3_content">
+            <div id="tab3_content_main">
+
+
+
+                <div id="tab3_content_header">
                     <span class="login_name_left">
                         User:<span class="login_name"></span>
                     </span>
@@ -102,11 +134,10 @@
                     <span class="domain_left">
                         Domain:<span class="domain_name"></span>
                     </span>
-
                 </div>
-                <hr>
+                <hr style="margin-bottom: 10px;">
                 <div class="page_row">
-                    <span class="left_column_tab2">
+                    <span class="left_column_tab3">
                         Country Code:
                         <img src="../img/q.png" class="qtip" id="country_code_tip"/>
                     </span>
@@ -114,60 +145,52 @@
                     <select id="country_code" class="triggersSave"></select>
 
                 </div>
-                <!--<div class="page_row" style="margin: 0 0 10px 0;">
-                    <span class="left_column_tab2">
+                <div class="page_row" style="margin: 0 0 10px 0;">
+                    <span class="left_column_tab3">
                         Device:
                         <img src="../img/q.png" class="qtip" id="device_tip"/>
                     </span>
                     <br>
                     <select id="devices" class="triggersSave"></select>
 
-                </div>-->
+                </div>
                 <div class="page_row">
-                    <span class="left_column_tab2">
+                    <span class="left_column_tab3">
                         International Prefix:
                         <img src="../img/q.png" class="qtip" id="intl_prefix_tip">
                     </span>
-                    <span class="right_column_tab2">
+                    <span class="right_column_tab3">
                         <input type=text id="intl_prefix" class="options_text_box triggersSave">
                     </span>
 
                 </div>
                 <div class="page_row">
-                    <span class="left_column_tab2">
+                    <span class="left_column_tab3">
                         Area Code:
                     </span>
-                    <span class="right_column_tab2">
+                    <span class="right_column_tab3">
                         <input type=text id="area_code" class="options_text_box" disabled>
                     </span>
                 </div>
                 <div class="page_row">
-                    <span class="left_column_radio_tab2">
+                    <span class="left_column_radio_tab3">
                         Display Number Before Calling:
                         <img src="../img/q.png" class="qtip" id="display_number_before_call_tip">
                     </span>
                     <input type="checkbox" id="display_number_before_call_switch"
                            class="option_switch triggersQuietSave"/>
-                    <label for="display_number_before_call_switch">ON</label>
+                    <label class="option_switch_label" for="display_number_before_call_switch">ON</label>
                 </div>
-                 <div class="page_row">
-                    <span class="left_column_radio_tab2">
+                <div class="page_row">
+                    <span class="left_column_radio_tab3">
                         Include Short Numbers:
                         <img src="../img/q.png" class="qtip" id="short_number_tip">
                     </span>
                     <input type="checkbox" id="short_number_switch" class="option_switch triggersQuietSave"/>
-                     <label for="short_number_switch">ON</label>
+                    <label class="option_switch_label" for="short_number_switch">ON</label>
                 </div>
-                <!--
-                <div class="page_row">
-                    <span class="left_column_radio_tab2">
-                        Force Answer:
-                        <img src="img/q.png" class="qtip" id="force_answer_tip">
-                    </span>
-                    <input type="checkbox" id="force_call_switch" class="option_switch triggersQuietSave"/><label for="force_call_switch">ON</label>
-                </div>-->
                 <div class="page_row" style="width: 290px;">
-                    <span class="left_column_tab2" style="width:205px; float:left;">
+                    <span class="left_column_tab3" style="width:205px; float:left;">
                         Dial Number Hotkey:
                         <img src="../img/q.png" class="qtip" id="dial_number_tip" style="margin-left:-1px;">
                     </span>
@@ -175,89 +198,99 @@
                 </div>
             </div>
         </div>
-        <div id="tab3_content" class="tab_content">
-            <!--<div class="page_row" style="margin-bottom: 10px;">
 
-                <span class="filter_select_label">
-                            Filter:
-                            <img src="../img/q.png" class="qtip" id="country_code_tip"/>
+        <div id="tab4_content" class="tab_content">
+            <div class="page_row" style="margin-bottom: 5px;">
+
+                <span id="tooltip_close_button_select_label">
+                            Close Button:
                         </span>
-                <select class="filter_select triggersSave">
+                <select id="tooltip_close_button_select" class="triggersQuietSave">
+                    <option value="none"></option>
+                    <option value="current">Ignores a number once.</option>
+                    <option value="all">Keep a number ignored.</option>
+                </select>
+            </div>
+            <div class="page_row" style="margin-bottom: 10px;">
+
+                <span id="filter_select_label">
+                            Filter:
+                        </span>
+                <select id="filter_select" class="triggersQuietSave">
                     <option filter="domain_filter">Domains</option>
                     <option filter="number_filter">Phone Numbers</option>
                 </select>
-            </div>-->
-            <div class="page_row" style="margin-bottom: 10px;">
+            </div>
+            <div id="domain_list_options" class="page_row" style="margin-bottom: 10px;">
                 <span>
                     Domain Filter:
                     <img src="../img/q.png" class="qtip" id="domain_filter_tip">
                 </span>
                 <br>
                 <span>
-                    <input id="domain_whitelist_radio" type=radio class="domain_filter" name="domain_filter"
-                           value="domain_whitelist" style="margin-left: 10px;">
+                    <input id="domain_whitelist_radio" type=radio class="domain_filter triggersSave"
+                           name="domain_filter" value="whitelist" style="margin-left: 10px;">
                     White List
-                    <input id="domain_blacklisted_radio" type=radio class="domain_filter" name="domain_filter"
-                           value="domain_blacklist">
+                    <input id="domain_blacklisted_radio" type=radio class="domain_filter triggersSave"
+                           name="domain_filter" value="blacklist">
                     Black List
-                    <input id="domain_nofilter_radio" type=radio class="domain_filter" name="domain_filter"
-                           value="domain_nofilter" checked="checked">
+                    <input id="domain_nofilter_radio" type=radio class="domain_filter triggersSave"
+                           name="domain_filter" value="nofilter" checked="checked">
                     None
                 </span>
-            </div>
-            <div id="domain_list_container">
-                <span class="left_column_tab2">
+                <div id="domain_list_container">
+                <span class="left_column_tab3">
                     Add Domain:
                     <img src="../img/q.png" class="qtip" id="domain_list_tip">
                 </span>
-                <div class="right_column_tab2_page2">
+                    <div class="right_column_tab3_page2">
                     <span >
                         <input type="text" id="add_domain" class="options_bottom_text_box">
                         <button id="add_domain_list">
                             add
                         </button>
                     </span>
+                    </div>
+                    <div id="domain_list"></div>
                 </div>
             </div>
-            <div id="domain_list"></div>
-            <!--
-            <div class="page_row" style="margin-bottom: 10px;">
-            <span>
-                Number Filter:
-                <img src="../img/q.png" class="qtip" id="number_filter_tip">
-            </span>
+
+            <div id="number_list_options" class="page_row" style="margin-bottom: 10px;">
+                <span>
+                    Number Filter:
+                    <img src="../img/q.png" class="qtip" id="number_filter_tip">
+                </span>
                 <br>
                 <span>
-                <input id="number_whitelist_radio" type=radio class="number_filter" name="number_filter"
-                       value="number_whitelist" style="margin-left: 10px;">
-                White List
-                <input id="number_blacklisted_radio" type=radio class="number_filter" name="number_filter"
-                       value="number_blacklist">
-                Black List
-                <input id="number_nofilter_radio" type=radio class="number_filter" name="number_filter"
-                       value="number_nofilter" checked="checked">
-                None
-            </span>
-            </div>
-            <div id="number_list_container">
-                <span class="left_column_tab2">
+                    <input id="number_whitelist_radio" type=radio class="number_filter triggersSave"
+                           name="number_filter" value="whitelist" style="margin-left: 10px;">
+                    White List
+                    <input id="number_blacklisted_radio" type=radio class="number_filter triggersSave"
+                           name="number_filter" value="blacklist">
+                    Black List
+                    <input id="number_nofilter_radio" type=radio class="number_filter triggersSave"
+                           name="number_filter" value="nofilter" checked="checked">
+                    None
+                </span>
+                <div id="number_list_container">
+                <span class="left_column_tab3">
                     Add Number:
                     <img src="../img/q.png" class="qtip" id="number_list_tip">
                 </span>
-                <div class="right_column_tab2_page2">
+                    <div class="right_column_tab3_page2">
                     <span >
                         <input type="text" id="add_number" class="options_bottom_text_box">
                         <button id="add_number_list">
                             add
                         </button>
                     </span>
+                    </div>
                 </div>
+                <div id="number_list"></div>
             </div>
-            <div id="number_list"></div>
-            -->
-        </div>
 
-        <div id="tab4_content" class="tab_content">
+        </div>
+        <div id="tab5_content" class="tab_content">
             What would you like to know about:
             <div>
                 <span id="_how_to_use" class="toggle" style="display:inline-block;">
@@ -310,7 +343,7 @@
                 <div id="_manual_dial_2_info"  class="help_category" style="display: none;">
                     <hr>
                     <div>
-                        In the <span class="jump_to_tab" tab="tab2">Options</span> tab you can set a keyboard shortcut to manually dial a number.
+                        In the <span class="jump_to_tab" tab="tab3">Options</span> tab you can set a keyboard shortcut to manually dial a number.
                     </div>
                     <img src="../img/help_1.png" class="help_img_large">
                     <div>
@@ -365,14 +398,16 @@
 
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/rsvp.min.js"></script>
 <script src="../js/axios.min.js"></script>
 <script src="../js/menuTables.js"></script>
 <script src="../config.js"></script>
 <script src="../js/stub.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/api.js"></script>
-<script src="../js/modal.js"></script>
+<script src="../js/popup.js"></script>
 <script src="../js/keybind.js"></script>
+<script src="../js/filter.js"></script>
 <script src="../js/menu.js"></script>
 </body>
 </html>
