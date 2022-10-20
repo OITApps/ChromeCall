@@ -7,7 +7,7 @@
 	},
   "description": "ChromeCall extension to dial numbers directly from web pages",
   "version": "0.7",
-  "browser_action": {
+  "action": {
     "default_popup": "html/menu.html"
   },
   "content_scripts": [{
@@ -36,13 +36,11 @@
   "permissions": [
     "http://*/*",
     "https://*/*",
-    "activeTab",
     "tabs",
     "storage",
-    "notifications",
     "contextMenus"
   ],
-  "manifest_version": 2,
+  "manifest_version": 3,
   "web_accessible_resources": [ "img/*"]
 }
 
