@@ -30,7 +30,7 @@
     "all_frames": true
   }],
   "background": {
-    "service_worker": "js/jquery-3.3.1.min.js, js/rsvp.min.js, js/background.js"
+    "service_worker": "js/background.js"
   },
   "permissions": [
     "http://*/*",
