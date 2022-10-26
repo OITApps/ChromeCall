@@ -40,7 +40,10 @@
     "contextMenus"
   ],
   "manifest_version": 3,
-  "web_accessible_resources": [ "img/*"]
+  "web_accessible_resources": [{ 
+    "resources": ["img/*"],
+    "matches": ["http://*/*", "https://*/*"]
+  }]
 }
 
 
