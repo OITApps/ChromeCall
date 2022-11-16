@@ -32,3 +32,6 @@ Users may now filter specific phone numbers.
 A call history tab has been added to the extension menu which allows users to see and call numbers on their call history. 
 Disabling the extension (logging out or filtering a domain) no longer requires page reload to stop the extension from functioning on a disabled page.
 Updated extension Manifest to v3 format to be in compliance with Google Web Store for browser extensions. More info: https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/
+
+Version 1.0.1
+Fixed a bug that was preventing the Call tooltip from being generated on the user's side.

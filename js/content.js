@@ -205,19 +205,19 @@ function generatetooltip() {
 
     let id = 'cc_tip';
     cc_tip.tooltip = $('<div id="' + id + '"></div>');
-    cc_tip.tooltipBg = $('<img id="' + id + '_bg" src="' + chrome.extension.getURL('img/tooltip bg.png') + '">');
+    cc_tip.tooltipBg = $('<img id="' + id + '_bg" src="' + chrome.runtime.getURL('img/tooltip bg.png') + '">');
     cc_tip.tooltipBgSuccess = $('<img id="' + id + '_bg_success" src="'
-        + chrome.extension.getURL('img/tooltip bg success.png') + '">');
+        + chrome.runtime.getURL('img/tooltip bg success.png') + '">');
     cc_tip.tooltipBgFailure = $('<img id="' + id + '_bg_failure" src="'
-        + chrome.extension.getURL('img/tooltip bg failure.png') + '">');
+        + chrome.runtime.getURL('img/tooltip bg failure.png') + '">');
     cc_tip.tooltipCont = $('<span id="' + id + '_cont">Call</span>');
     cc_tip.tooltipContSuccess = $('<span id="' + id + '_cont_success">Success</span>');
     cc_tip.tooltipContFailure = $('<span id="' + id + '_cont_failure">Call Failed</span>');
     cc_tip.closeButton = $('<img id="' + id + '_close_button" src="'
-        + chrome.extension.getURL('img/tooltip close.png') + '">');
+        + chrome.runtime.getURL('img/tooltip close.png') + '">');
     cc_tip.closeButtonBackdrop = $('<div id="' + id + '_close_button_backdrop"></div>');
     cc_tip.raiseModalButton = $('<div id="' + id + '_raise_modal_button"><img src="'
-        + chrome.extension.getURL('img/edit icon.png') + '"></div>');
+        + chrome.runtime.getURL('img/edit icon.png') + '"></div>');
     cc_tip.raiseModalBackdrop = $('<div id="' + id + '_raise_modal_backdrop"></div>');
 
     //event listeners

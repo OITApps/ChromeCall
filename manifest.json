@@ -6,7 +6,7 @@
     "128": "icons/128.png"
 	},
   "description": "ChromeCall extension to dial numbers directly from web pages",
-  "version": "1.0",
+  "version": "1.0.1",
   "action": {
     "default_popup": "html/menu.html"
   },
